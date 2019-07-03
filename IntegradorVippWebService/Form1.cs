@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace IntegradorVippWebService
 {
@@ -19,8 +14,14 @@ namespace IntegradorVippWebService
 
         private void BtnImportar_Click(object sender, EventArgs e)
         {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                String nomeArquivo = openFileDialog1.SafeFileName;
+                Excel.Application xlsAPP = new Excel.Application();
+                Excel.Workbook xlsWorkbook = xlsAPP.Workbooks.Open(nomeArquivo, 0, true, 5, "", "", false, Excel.XlPlatform.xlWindows, "", false, false, 0, false, false, false);
 
-            .
+            }
         }
     }
 }
