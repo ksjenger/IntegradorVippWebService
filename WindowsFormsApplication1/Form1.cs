@@ -109,7 +109,6 @@ namespace IntegradorWebService
                 #endregion
 
 
-
                 #region Processa Planilha
                 List<Postagem> lVipp = new List<Postagem>();
                 Postagem oPostagem;
@@ -130,10 +129,11 @@ namespace IntegradorWebService
 
                             Excel.Range xlsCell = xlsWorkCell.Cells;
 
-
+                            //For para percorrer a lista de Formatação
                             foreach (FormatacaoPlanilha list in lFormatacao)
                             {
                                 oPostagem = new Postagem();
+                                DeclaracaoConteudo oDeclaracao = new DeclaracaoConteudo();
                                 String atributo = list.NomeAtributo;
                                 int coluna = list.Coluna;
                                 String valor = null;
@@ -141,10 +141,8 @@ namespace IntegradorWebService
                                 //for do numero de celulas 
                                 foreach (Excel.Range xlsCells in xlsCell)
                                 {
-                                    //xlsCells.Column retorna o index em um int;
-                                    //xlsCells.Value; retorna o valor do campo em String
 
-
+                                    //
                                     if (xlsCells.Column.Equals(coluna))
                                     {
                                         valor = xlsCells.Value;
@@ -188,12 +186,16 @@ namespace IntegradorWebService
                                 }
                                 else if (atributo.Equals("Conteudo"))
                                 {
-                                    oPostagem.Volumes[1].Conteudo = valor;
+                                    oDeclaracao.ItemConteudo[0].DescricaoConteudo = valor;
                                 }
                                 else if (atributo.Equals("Observacao1"))
                                 {
-                                    oPostagem.Volumes[1].ObservacaoVisual = valor;
+                                    
                                 }
+
+                            }
+
+                                
 
                                 Postagem oPostagemExistente = (from o in lVipp where o.Volumes[0].ObservacaoVisual.Equals(oPostagem.Volumes[0].ObservacaoVisual) select o).FirstOrDefault();
                                 if (oPostagemExistente.Destinatario.Nome.Equals(string.Empty))
@@ -207,7 +209,7 @@ namespace IntegradorWebService
                                     x[x.Length] = oPostagem.Volumes[0].DeclaracaoConteudo.ItemConteudo[0];
                                     oPostagemExistente.Volumes[0].DeclaracaoConteudo.ItemConteudo = x;
                                 }
-                                //oPostagem.Volumes[0].DeclaracaoConteudo.ItemConteudo[0].
+                               // oPostagem.Volumes[0].DeclaracaoConteudo.ItemConteudo[1];
 
                             }
                         }
@@ -219,8 +221,6 @@ namespace IntegradorWebService
 
                     }
                 }
-
-            }
         }
     }
 }
