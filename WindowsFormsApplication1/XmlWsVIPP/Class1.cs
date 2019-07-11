@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
-namespace Xml2CSharp
+
+namespace IntegradorWebService
 {
     [XmlRoot(ElementName = "ContratoEct")]
     public class ContratoEct

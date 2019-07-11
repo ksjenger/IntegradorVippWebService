@@ -47,6 +47,7 @@ namespace IntegradorWebService.WSVippPostar {
         
         /// <remarks/>
         public PostagemVipp() {
+            //this.Url = global::IntegradorWebService.Properties.Settings.Default.WindowsFormsApplication1_WSVippPostar_PostagemVipp;
             this.Url = global::IntegradorWebService.Properties.Settings.Default.WindowsFormsApplication1_WSVippPostar_PostagemVipp;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;

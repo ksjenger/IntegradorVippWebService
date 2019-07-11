@@ -21,7 +21,6 @@ namespace IntegradorWebService
         public Form1()
         {
             InitializeComponent();
-            Console.WriteLine("Abrindo a planilha");
         }
 
         private void BtnSelecione_Click(object sender, EventArgs e)
@@ -30,55 +29,6 @@ namespace IntegradorWebService
             #region Define a formatação da Planilha
             List<FormatacaoPlanilha> lFormatacao = new List<FormatacaoPlanilha>();
             FormatacaoPlanilha oFormatacao = new FormatacaoPlanilha();
-            oFormatacao.NomeAtributo = "Observacao1";
-            oFormatacao.Coluna = 1;
-            lFormatacao.Add(oFormatacao);
-
-            oFormatacao = new FormatacaoPlanilha();
-            oFormatacao.NomeAtributo = "Conteudo";
-            oFormatacao.Coluna = 12;
-            lFormatacao.Add(oFormatacao);
-
-            oFormatacao = new FormatacaoPlanilha();
-            oFormatacao.NomeAtributo = "Destinatario";
-            oFormatacao.Coluna = 15;
-            lFormatacao.Add(oFormatacao);
-
-            oFormatacao = new FormatacaoPlanilha();
-            oFormatacao.NomeAtributo = "Endereco";
-            oFormatacao.Coluna = 17;
-            lFormatacao.Add(oFormatacao);
-
-            oFormatacao = new FormatacaoPlanilha();
-            oFormatacao.NomeAtributo = "Numero";
-            oFormatacao.Coluna = 2;
-            lFormatacao.Add(oFormatacao);
-
-            oFormatacao = new FormatacaoPlanilha();
-            oFormatacao.NomeAtributo = "Bairro";
-            oFormatacao.Coluna = 19;
-            lFormatacao.Add(oFormatacao);
-
-            oFormatacao = new FormatacaoPlanilha();
-            oFormatacao.NomeAtributo = "Complemento";
-            oFormatacao.Coluna = 20;
-            lFormatacao.Add(oFormatacao);
-
-            oFormatacao = new FormatacaoPlanilha();
-            oFormatacao.NomeAtributo = "CEP";
-            oFormatacao.Coluna = 21;
-            lFormatacao.Add(oFormatacao);
-
-            oFormatacao = new FormatacaoPlanilha();
-            oFormatacao.NomeAtributo = "Cidade";
-            oFormatacao.Coluna = 22;
-            lFormatacao.Add(oFormatacao);
-
-            oFormatacao = new FormatacaoPlanilha();
-            oFormatacao.NomeAtributo = "Destinatario";
-            oFormatacao.Coluna = 15;
-            lFormatacao.Add(oFormatacao);
-
             #endregion
 
             #region Serialização do arquivo XML 
@@ -94,6 +44,13 @@ namespace IntegradorWebService
                     string x = Convert.ToBase64String(plainTextBytes);
                 }
             }
+
+            #endregion
+
+
+            #region Recupera a formatação da planilha do App.Config
+
+            lFormatacao = FormatacaoPlanilha.ListarFormatacao();
 
             #endregion
 
@@ -197,7 +154,7 @@ namespace IntegradorWebService
 
                                 
 
-                                Postagem oPostagemExistente = (from o in lVipp where o.Volumes[0].ObservacaoVisual.Equals(oPostagem.Volumes[0].ObservacaoVisual) select o).FirstOrDefault();
+                                /*Postagem oPostagemExistente = (from o in lVipp where o.Volumes[0].ObservacaoVisual.Equals(oPostagem.Volumes[0].ObservacaoVisual) select o).FirstOrDefault();
                                 if (oPostagemExistente.Destinatario.Nome.Equals(string.Empty))
                                 {
                                     lVipp.Add(oPostagem);
@@ -209,13 +166,13 @@ namespace IntegradorWebService
                                     x[x.Length] = oPostagem.Volumes[0].DeclaracaoConteudo.ItemConteudo[0];
                                     oPostagemExistente.Volumes[0].DeclaracaoConteudo.ItemConteudo = x;
                                 }
-                               // oPostagem.Volumes[0].DeclaracaoConteudo.ItemConteudo[1];
+                               // oPostagem.Volumes[0].DeclaracaoConteudo.ItemConteudo[1];*/
 
                             }
                         }
 
                         WSVippPostar.PostagemVipp oSigep = new WSVippPostar.PostagemVipp();
-                        string oRetorno = oSigep.PostarObjeto(lVipp[0]).InnerXml;
+                        //string oRetorno = oSigep.PostarObjeto(lVipp[0]).InnerXml;
 
                         #endregion
 
