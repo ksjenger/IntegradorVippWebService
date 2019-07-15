@@ -12,7 +12,7 @@ using System.Xml.Serialization;
 using IntegradorWebService.WSVippPostar;
 using System.Runtime.InteropServices;
 using Excel = Microsoft.Office.Interop.Excel;
-
+using IntegradorWebService.XmlWsVIPP;
 
 namespace IntegradorWebService
 {
@@ -67,8 +67,8 @@ namespace IntegradorWebService
 
 
                 #region Processa Planilha
-                List<Postagem> lVipp = new List<Postagem>();
-                Postagem oPostagem;
+                List<PostagemVipp> lVipp = new List<PostagemVipp>();
+                PostagemVipp oPostagem;
 
                 //For que acessa todas as planilhas
                 foreach (Excel.Worksheet xlsWorksheet in xlsSheets)
@@ -87,10 +87,15 @@ namespace IntegradorWebService
                             Excel.Range xlsCell = xlsWorkCell.Cells;
 
                             //For para percorrer a lista de Formatação
+                            Destinatario oDestinatario = new Destinatario();
+                            XmlWsVIPP.VolumeObjeto[] oVolumeObjetos = new XmlWsVIPP.VolumeObjeto[] { new XmlWsVIPP.VolumeObjeto() };
+                            XmlWsVIPP.ItemConteudo[] oItemConteudos;
+                            XmlWsVIPP.Volumes[] oVolumes = new XmlWsVIPP.Volumes[] { new Volumes() };
+                            //PostagemVipp oPostagemExistente = new PostagemVipp();
+
                             foreach (FormatacaoPlanilha list in lFormatacao)
                             {
-                                oPostagem = new Postagem();
-                                DeclaracaoConteudo oDeclaracao = new DeclaracaoConteudo();
+
                                 String atributo = list.NomeAtributo;
                                 int coluna = list.Coluna;
                                 String valor = null;
@@ -100,7 +105,7 @@ namespace IntegradorWebService
                                 {
 
                                     //
-                                    if (xlsCells.Column.Equals(coluna))
+                                    if (xlsCells.Column.Equals(list.Coluna))
                                     {
                                         valor = xlsCells.Value;
                                     }
@@ -113,71 +118,80 @@ namespace IntegradorWebService
                                 //MessageBox.Show(" " + coluna + " " + atributo + " " + valor);
                                 if (atributo.Equals("Destinatario"))
                                 {
-                                    oPostagem.Destinatario.Nome = valor;
+                                    oDestinatario.Nome = valor;
                                 }
                                 else if (atributo.Equals("Endereco"))
                                 {
-                                    oPostagem.Destinatario.Endereco = valor;
+                                    oDestinatario.Endereco = valor;
                                 }
                                 else if (atributo.Equals("Numero"))
                                 {
-                                    oPostagem.Destinatario.Numero = valor;
+                                    oDestinatario.Numero = valor;
                                 }
                                 else if (atributo.Equals("Bairro"))
                                 {
-                                    oPostagem.Destinatario.Bairro = valor;
+                                    oDestinatario.Bairro = valor;
 
                                 }
                                 else if (atributo.Equals("Cidade"))
                                 {
-                                    oPostagem.Destinatario.Cidade = valor;
+                                    oDestinatario.Cidade = valor;
                                 }
                                 else if (atributo.Equals("CEP"))
                                 {
-                                    oPostagem.Destinatario.Cep = valor;
+                                    oDestinatario.Cep = valor;
                                 }
 
                                 else if (atributo.Equals("Complemento"))
                                 {
-                                    oPostagem.Destinatario.Complemento = valor;
+                                    oDestinatario.Complemento = valor;
                                 }
                                 else if (atributo.Equals("Conteudo"))
                                 {
-                                    oDeclaracao.ItemConteudo[0].DescricaoConteudo = valor;
+                                    XmlWsVIPP.ItemConteudo oItemConteudo = new XmlWsVIPP.ItemConteudo(valor);
+                                    oItemConteudos = new XmlWsVIPP.ItemConteudo[] { oItemConteudo };
+                                    XmlWsVIPP.DeclaracaoConteudo oDeclaracao = new XmlWsVIPP.DeclaracaoConteudo(oItemConteudos);
+                                    oVolumeObjetos[0].DeclaracaoConteudo = oDeclaracao;
                                 }
                                 else if (atributo.Equals("Observacao1"))
                                 {
-                                    
+                                    XmlWsVIPP.VolumeObjeto oVolumeObjeto = new XmlWsVIPP.VolumeObjeto();
+                                    oVolumeObjeto.CodigoBarraCliente = valor;
+                                    oVolumeObjetos[oVolumeObjetos.Length - 1].CodigoBarraVolume = oVolumeObjeto.CodigoBarraCliente;
                                 }
 
                             }
 
-                                
+                            oVolumes[oVolumes.Length - 1].VolumeObjeto = oVolumeObjetos;
+                            PostagemVipp oPostagemVipp = new PostagemVipp(null, null, oDestinatario, null, null, oVolumes);
+                                                                                                            
 
-                                /*Postagem oPostagemExistente = (from o in lVipp where o.Volumes[0].ObservacaoVisual.Equals(oPostagem.Volumes[0].ObservacaoVisual) select o).FirstOrDefault();
-                                if (oPostagemExistente.Destinatario.Nome.Equals(string.Empty))
-                                {
-                                    lVipp.Add(oPostagem);
-                                }
-                                else
-                                {
-                                    ItemConteudo[] x = oPostagemExistente.Volumes[0].DeclaracaoConteudo.ItemConteudo;
-                                    Array.Resize(ref x, x.Length);
-                                    x[x.Length] = oPostagem.Volumes[0].DeclaracaoConteudo.ItemConteudo[0];
-                                    oPostagemExistente.Volumes[0].DeclaracaoConteudo.ItemConteudo = x;
-                                }
-                               // oPostagem.Volumes[0].DeclaracaoConteudo.ItemConteudo[1];*/
+                            PostagemVipp oPostagemExistente = (from o in lVipp where o.Volumes[0].VolumeObjeto[0].CodigoBarraCliente.Equals
+                                                               (oPostagemVipp.Volumes[0].VolumeObjeto[0].CodigoBarraCliente) select o).FirstOrDefault();
 
+                            if (oPostagemExistente == null)
+                            {
+                                lVipp.Add(oPostagemVipp);
                             }
+                            else
+                            {
+                                XmlWsVIPP.ItemConteudo[] x = oPostagemExistente.Volumes[0].VolumeObjeto[0].DeclaracaoConteudo.ItemConteudo;
+                                Array.Resize(ref x, x.Length);
+                                x[x.Length] = oPostagemVipp.Volumes[0].VolumeObjeto[0].DeclaracaoConteudo.ItemConteudo[0];
+                                oPostagemExistente.Volumes[0].VolumeObjeto[0].DeclaracaoConteudo.ItemConteudo = x;
+                            }
+                            // oPostagem.Volumes[0].DeclaracaoConteudo.ItemConteudo[1];*/
+
                         }
-
-                        WSVippPostar.PostagemVipp oSigep = new WSVippPostar.PostagemVipp();
-                        //string oRetorno = oSigep.PostarObjeto(lVipp[0]).InnerXml;
-
-                        #endregion
-
                     }
+
+                    WSVippPostar.PostagemVipp oSigep = new WSVippPostar.PostagemVipp();
+                    //string oRetorno = oSigep.PostarObjeto(lVipp[0]).InnerXml;
+
+                    #endregion
+
                 }
+            }
         }
     }
 }

@@ -36,22 +36,24 @@ namespace IntegradorWebService
             layout = layout.Replace('\\', ' ');
             byte[] data = Convert.FromBase64String(layout.Trim());
             string decodedString = Encoding.UTF8.GetString(data);
-            XElement xml = XElement.Parse(decodedString);
-            
-            foreach (XElement x in xml.Elements())
-            {
-                FormatacaoPlanilha formatacaoPlanilha = new FormatacaoPlanilha()
-                {
-                    NomeAtributo = x.Attribute("NomeAtributo").Value,
-                    Coluna = int.Parse(x.Attribute("Coluna").Value)
-                };
+            XElement xmlElement = XElement.Parse(decodedString);
+            var xml = xmlElement;
 
-                lista.Add(formatacaoPlanilha);
+            var q = from e in xml.Descendants("FormatacaoPlanilha")
+                    select new FormatacaoPlanilha()
+                    {
+                        NomeAtributo = e.Element("NomeAtributo").Value,
+                        Coluna = int.Parse(e.Element("Coluna").Value)
+            };
+
+
+            foreach (var k in q)
+            {
+                lista.Add(k);
             }
+
             return lista;
         }
-
-
 
         #endregion
     }

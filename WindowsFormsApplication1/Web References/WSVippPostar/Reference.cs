@@ -20,8 +20,9 @@ namespace IntegradorWebService.WSVippPostar {
     using System.Web.Services.Protocols;
     using System.Xml.Serialization;
     using System.ComponentModel;
-    
-    
+    using IntegradorWebService.XmlWsVIPP;
+
+
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1307,6 +1308,11 @@ namespace IntegradorWebService.WSVippPostar {
             set {
                 this.itemConteudoField = value;
             }
+        }
+
+        public static implicit operator DeclaracaoConteudo(XmlWsVIPP.DeclaracaoConteudo v)
+        {
+            throw new NotImplementedException();
         }
     }
     
