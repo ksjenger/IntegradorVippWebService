@@ -35,26 +35,7 @@ namespace IntegradorWebService.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTE2Ij8+PEFycmF5T2ZGb3JtYXRhY2FvUGxh" +
-            "bmlsaGEgeG1sbnM6eHNkPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYSIgeG1sbnM6eHNp" +
-            "PSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSI+PEZvcm1hdGFjYW9QbGFu" +
-            "aWxoYT48Tm9tZUF0cmlidXRvPk9ic2VydmFjYW8xPC9Ob21lQXRyaWJ1dG8+PENvbHVuYT4xPC9Db2x1" +
-            "bmE+PC9Gb3JtYXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0cmlidXRvPkNv" +
-            "bnRldWRvPC9Ob21lQXRyaWJ1dG8+PENvbHVuYT4xMjwvQ29sdW5hPjwvRm9ybWF0YWNhb1BsYW5pbGhh" +
-            "PjxGb3JtYXRhY2FvUGxhbmlsaGE+PE5vbWVBdHJpYnV0bz5EZXN0aW5hdGFyaW88L05vbWVBdHJpYnV0" +
-            "bz48Q29sdW5hPjE1PC9Db2x1bmE+PC9Gb3JtYXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFuaWxo" +
-            "YT48Tm9tZUF0cmlidXRvPkVuZGVyZWNvPC9Ob21lQXRyaWJ1dG8+PENvbHVuYT4xNzwvQ29sdW5hPjwv" +
-            "Rm9ybWF0YWNhb1BsYW5pbGhhPjxGb3JtYXRhY2FvUGxhbmlsaGE+PE5vbWVBdHJpYnV0bz5OdW1lcm88" +
-            "L05vbWVBdHJpYnV0bz48Q29sdW5hPjI8L0NvbHVuYT48L0Zvcm1hdGFjYW9QbGFuaWxoYT48Rm9ybWF0" +
-            "YWNhb1BsYW5pbGhhPjxOb21lQXRyaWJ1dG8+QmFpcnJvPC9Ob21lQXRyaWJ1dG8+PENvbHVuYT4xOTwv" +
-            "Q29sdW5hPjwvRm9ybWF0YWNhb1BsYW5pbGhhPjxGb3JtYXRhY2FvUGxhbmlsaGE+PE5vbWVBdHJpYnV0" +
-            "bz5Db21wbGVtZW50bzwvTm9tZUF0cmlidXRvPjxDb2x1bmE+MjA8L0NvbHVuYT48L0Zvcm1hdGFjYW9Q" +
-            "bGFuaWxoYT48Rm9ybWF0YWNhb1BsYW5pbGhhPjxOb21lQXRyaWJ1dG8+Q0VQPC9Ob21lQXRyaWJ1dG8+" +
-            "PENvbHVuYT4yMTwvQ29sdW5hPjwvRm9ybWF0YWNhb1BsYW5pbGhhPjxGb3JtYXRhY2FvUGxhbmlsaGE+" +
-            "PE5vbWVBdHJpYnV0bz5DaWRhZGU8L05vbWVBdHJpYnV0bz48Q29sdW5hPjIyPC9Db2x1bmE+PC9Gb3Jt" +
-            "YXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0cmlidXRvPkRlc3RpbmF0YXJp" +
-            "bzwvTm9tZUF0cmlidXRvPjxDb2x1bmE+MTU8L0NvbHVuYT48L0Zvcm1hdGFjYW9QbGFuaWxoYT48L0Fy" +
-            "cmF5T2ZGb3JtYXRhY2FvUGxhbmlsaGE+\"")]
+        [global::System.Configuration.DefaultSettingValueAttribute("PEFycmF5T2ZGb3JtYXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0cmlidXRvPk9ic2VydmFjYW8xPC9Ob21lQXRyaWJ1dG8+PENvbHVuYT4xPC9Db2x1bmE+PC9Gb3JtYXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0cmlidXRvPkNvbnRldWRvPC9Ob21lQXRyaWJ1dG8+PENvbHVuYT4xMjwvQ29sdW5hPjwvRm9ybWF0YWNhb1BsYW5pbGhhPjxGb3JtYXRhY2FvUGxhbmlsaGE+PE5vbWVBdHJpYnV0bz5EZXN0aW5hdGFyaW88L05vbWVBdHJpYnV0bz48Q29sdW5hPjE1PC9Db2x1bmE+PC9Gb3JtYXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0cmlidXRvPkVuZGVyZWNvPC9Ob21lQXRyaWJ1dG8+PENvbHVuYT4xNzwvQ29sdW5hPjwvRm9ybWF0YWNhb1BsYW5pbGhhPjxGb3JtYXRhY2FvUGxhbmlsaGE+PE5vbWVBdHJpYnV0bz5OdW1lcm88L05vbWVBdHJpYnV0bz48Q29sdW5hPjE4PC9Db2x1bmE+PC9Gb3JtYXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0cmlidXRvPkJhaXJybzwvTm9tZUF0cmlidXRvPjxDb2x1bmE+MTk8L0NvbHVuYT48L0Zvcm1hdGFjYW9QbGFuaWxoYT48Rm9ybWF0YWNhb1BsYW5pbGhhPjxOb21lQXRyaWJ1dG8+Q29tcGxlbWVudG88L05vbWVBdHJpYnV0bz48Q29sdW5hPjIwPC9Db2x1bmE+PC9Gb3JtYXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0cmlidXRvPkNFUDwvTm9tZUF0cmlidXRvPjxDb2x1bmE+MjE8L0NvbHVuYT48L0Zvcm1hdGFjYW9QbGFuaWxoYT48Rm9ybWF0YWNhb1BsYW5pbGhhPjxOb21lQXRyaWJ1dG8+Q2lkYWRlPC9Ob21lQXRyaWJ1dG8+PENvbHVuYT4yMjwvQ29sdW5hPjwvRm9ybWF0YWNhb1BsYW5pbGhhPjxGb3JtYXRhY2FvUGxhbmlsaGE+PE5vbWVBdHJpYnV0bz5EZXN0aW5hdGFyaW88L05vbWVBdHJpYnV0bz48Q29sdW5hPjE1PC9Db2x1bmE+PC9Gb3JtYXRhY2FvUGxhbmlsaGE+PC9BcnJheU9mRm9ybWF0YWNhb1BsYW5pbGhhPg==")]
         public string Layout {
             get {
                 return ((string)(this["Layout"]));

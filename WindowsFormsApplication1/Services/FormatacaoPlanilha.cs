@@ -31,9 +31,8 @@ namespace IntegradorWebService
             List<FormatacaoPlanilha> lista = new List<FormatacaoPlanilha>();
 
             string layout = IntegradorWebService.Properties.Settings.Default.Layout;
-            layout = layout.Replace('-', '+');
-            layout = layout.Replace('"', ' ');
-            layout = layout.Replace('\\', ' ');
+            char[] charsToTrim = { '"', ' ', '\\'};
+            layout = layout.Trim(charsToTrim);
             byte[] data = Convert.FromBase64String(layout.Trim());
             string decodedString = Encoding.UTF8.GetString(data);
             XElement xmlElement = XElement.Parse(decodedString);
