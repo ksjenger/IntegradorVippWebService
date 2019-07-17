@@ -9,8 +9,6 @@ namespace IntegradorWebService.XmlWsVIPP
     [XmlRoot(ElementName = "DeclaracaoConteudo", Namespace = "http://www.visualset.inf.br/")]
     public class DeclaracaoConteudo
     {
-        private ItemConteudo itemConteudo;
-
         [XmlElement(ElementName = "DocumentoRemetente", Namespace = "http://www.visualset.inf.br/")]
         public string DocumentoRemetente { get; set; }
         [XmlElement(ElementName = "DocumentoDestinatario", Namespace = "http://www.visualset.inf.br/")]

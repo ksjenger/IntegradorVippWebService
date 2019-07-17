@@ -11,6 +11,7 @@ namespace IntegradorWebService.XmlWsVIPP
     {
         [XmlElement(ElementName = "DescricaoConteudo", Namespace = "http://www.visualset.inf.br/")]
         public string DescricaoConteudo { get; set; }
+
         [XmlElement(ElementName = "Quantidade", Namespace = "http://www.visualset.inf.br/")]
         public string Quantidade { get; set; }
         [XmlElement(ElementName = "Valor", Namespace = "http://www.visualset.inf.br/")]
