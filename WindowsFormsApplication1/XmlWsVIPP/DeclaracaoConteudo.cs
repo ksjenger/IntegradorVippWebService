@@ -23,6 +23,9 @@ namespace IntegradorWebService.XmlWsVIPP
             ItemConteudo = itemConteudo;
         }
 
+        public DeclaracaoConteudo()
+        {
+        }
     }
 
 }

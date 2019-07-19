@@ -78,7 +78,6 @@ namespace IntegradorWebService
                     if (xlsWorksheet.Name.Trim().Equals("Control Respuesta"))
                     {
                         Excel.Range xlsWorksRows = xlsWorksheet.Rows;
-                        bool final = true;
 
                         //for do Numero de linhas
                         foreach (Excel.Range xlsWorkCell in xlsWorksRows)
@@ -87,6 +86,7 @@ namespace IntegradorWebService
                             XmlWsVIPP.VolumeObjeto[] oVolumeObjetos = new XmlWsVIPP.VolumeObjeto[] { new XmlWsVIPP.VolumeObjeto() };
                             XmlWsVIPP.ItemConteudo[] oItemConteudos;
                             XmlWsVIPP.Volumes[] oVolumes = new XmlWsVIPP.Volumes[] { new Volumes() };
+                            XmlWsVIPP.DeclaracaoConteudo[] oDeclaracaoConteudos = new XmlWsVIPP.DeclaracaoConteudo[] { new XmlWsVIPP.DeclaracaoConteudo() };
                             Excel.Range xlsCell = xlsWorkCell.Cells;
 
                             //For para percorrer a lista de Formatação
@@ -94,9 +94,7 @@ namespace IntegradorWebService
                             {
                                 String atributo = list.NomeAtributo;
                                 int coluna = list.Coluna;
-                                
-                                int linha = xlsWorkCell.Row;
-                                Excel.Range AtributoValor = xlsCell.Item[linha, coluna];
+                                Excel.Range AtributoValor = xlsCell.Item[coluna];
                                 string valor = AtributoValor.Text;
 
                                 if (atributo.Equals("Destinatario"))
@@ -131,8 +129,7 @@ namespace IntegradorWebService
                                 {
                                     XmlWsVIPP.ItemConteudo oItemConteudo = new XmlWsVIPP.ItemConteudo(valor);
                                     oItemConteudos = new XmlWsVIPP.ItemConteudo[] { oItemConteudo };
-                                    XmlWsVIPP.DeclaracaoConteudo oDeclaracao = new XmlWsVIPP.DeclaracaoConteudo(oItemConteudos);
-                                    oVolumeObjetos[0].DeclaracaoConteudo = oDeclaracao;
+                                    oVolumeObjetos[0].DeclaracaoConteudo = new XmlWsVIPP.DeclaracaoConteudo(oItemConteudos);
                                 }
                                 else if (atributo.Equals("Observacao1"))
                                 {
@@ -157,16 +154,12 @@ namespace IntegradorWebService
                             }
                             else
                             {
-                                XmlWsVIPP.ItemConteudo[] x = oPostagemExistente.Volumes[0].VolumeObjeto[0].DeclaracaoConteudo.ItemConteudo;
-                                Array.Resize(ref x, x.Length);
-                                x[x.Length] = oPostagemVipp.Volumes[0].VolumeObjeto[0].DeclaracaoConteudo.ItemConteudo[0];
-                                oPostagemVipp.Volumes[0].VolumeObjeto[0].DeclaracaoConteudo.ItemConteudo = x;
-
-
-                                //oPostagemVipp.Volumes[0].VolumeObjeto[1].DeclaracaoConteudo.ItemConteudo = oPostagemExistente.Volumes[0].VolumeObjeto[0].DeclaracaoConteudo.ItemConteudo;
+                                XmlWsVIPP.ItemConteudo[] x = oPostagemVipp.Volumes[0].VolumeObjeto[0].DeclaracaoConteudo.ItemConteudo;
+                                Array.Resize(ref x, x.Length+1);
+                                x[x.Length-1] = oPostagemExistente.Volumes[0].VolumeObjeto[0].DeclaracaoConteudo.ItemConteudo[0];
+                                oPostagemExistente.Volumes[0].VolumeObjeto[0].DeclaracaoConteudo.ItemConteudo = x;
+                                lTeste.Add(oPostagemExistente);
                             }
-
-
                         }
 
                     }// fim do if q acessa a aba da Planilha com o nome "Control Respuesta".
