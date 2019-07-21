@@ -35,10 +35,9 @@ namespace IntegradorWebService.Services
                     foreach (Excel.Range xlsWorkCell in xlsWorksRows)
                     {
                         Destinatario oDestinatario = new Destinatario();
-                        XmlWsVIPP.VolumeObjeto[] oVolumeObjetos = new XmlWsVIPP.VolumeObjeto[] { new XmlWsVIPP.VolumeObjeto() };
-                        XmlWsVIPP.ItemConteudo[] oItemConteudos;
-                        XmlWsVIPP.Volumes[] oVolumes = new XmlWsVIPP.Volumes[] { new XmlWsVIPP.Volumes() };
-                        XmlWsVIPP.DeclaracaoConteudo[] oDeclaracaoConteudos = new XmlWsVIPP.DeclaracaoConteudo[] { new XmlWsVIPP.DeclaracaoConteudo() };
+                        VolumeObjeto[] oVolumeObjetos = new VolumeObjeto[] { new VolumeObjeto() };
+                        ItemConteudo[] oItemConteudos;
+                        DeclaracaoConteudo[] oDeclaracaoConteudos = new DeclaracaoConteudo[] { new DeclaracaoConteudo() };
                         Excel.Range xlsCell = xlsWorkCell.Cells;
 
                         //For para percorrer a lista de Formatação
@@ -80,25 +79,26 @@ namespace IntegradorWebService.Services
                             }
                             else if (atributo.Equals("Conteudo"))
                             {
-                                XmlWsVIPP.ItemConteudo oItemConteudo = new XmlWsVIPP.ItemConteudo(valor);
-                                oItemConteudos = new XmlWsVIPP.ItemConteudo[] { oItemConteudo };
-                                oVolumeObjetos[0].DeclaracaoConteudo = new XmlWsVIPP.DeclaracaoConteudo(oItemConteudos);
+                                ItemConteudo oItemConteudo = new ItemConteudo(valor);
+                                oItemConteudos = new ItemConteudo[] { oItemConteudo };
+                                oVolumeObjetos[0].DeclaracaoConteudo = new DeclaracaoConteudo(oItemConteudos);
                             }
                             else if (atributo.Equals("Observacao1"))
                             {
-                                XmlWsVIPP.VolumeObjeto oVolumeObjeto = new XmlWsVIPP.VolumeObjeto();
+                                VolumeObjeto oVolumeObjeto = new VolumeObjeto();
                                 oVolumeObjeto.CodigoBarraCliente = valor;
                                 oVolumeObjetos[0].CodigoBarraCliente = oVolumeObjeto.CodigoBarraCliente;
                             }
                         }//fim do For da Lista de Formatacao
 
-                        oVolumes[0].VolumeObjeto = oVolumeObjetos;
-                        PostagemVipp oPostagemVipp = new PostagemVipp(null, null, oDestinatario, null, null, oVolumes);
+                        PerfilVipp oPerfilVipp = new PerfilVipp("webservice", "testewebservice", "606");
+
+                        PostagemVipp oPostagemVipp = new PostagemVipp(null, null, oDestinatario, null, null, oVolumeObjetos);
 
 
                         PostagemVipp oPostagemExistente = (from o in lVipp
-                                                           where o.Volumes[0].VolumeObjeto[0].CodigoBarraCliente.Equals
-                                           (oPostagemVipp.Volumes[0].VolumeObjeto[0].CodigoBarraCliente)
+                                                           where o.Volumes[0].CodigoBarraCliente.Equals(
+                                           (oPostagemVipp.Volumes[0].CodigoBarraCliente))
                                                            select o).FirstOrDefault();
                         if (oPostagemExistente == null)
                         {
@@ -106,10 +106,11 @@ namespace IntegradorWebService.Services
                         }
                         else
                         {
-                            XmlWsVIPP.ItemConteudo[] x = oPostagemVipp.Volumes[0].VolumeObjeto[0].DeclaracaoConteudo.ItemConteudo;
+                            
+                            ItemConteudo[] x = oPostagemVipp.Volumes[0].DeclaracaoConteudo.ItemConteudo;
                             Array.Resize(ref x, x.Length + 1);
-                            x[x.Length - 1] = oPostagemExistente.Volumes[0].VolumeObjeto[0].DeclaracaoConteudo.ItemConteudo[0];
-                            oPostagemExistente.Volumes[0].VolumeObjeto[0].DeclaracaoConteudo.ItemConteudo = x;
+                            x[x.Length - 1] = oPostagemExistente.Volumes[0].DeclaracaoConteudo.ItemConteudo[0];
+                            oPostagemExistente.Volumes[0].DeclaracaoConteudo.ItemConteudo = x;
                             lVipp.Add(oPostagemExistente);
                         }
 

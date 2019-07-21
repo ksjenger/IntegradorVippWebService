@@ -87,14 +87,11 @@
     <Compile Include="XmlWsVIPP\Erro.cs" />
     <Compile Include="XmlWsVIPP\ItemConteudo.cs" />
     <Compile Include="XmlWsVIPP\ListaErros.cs" />
-    <Compile Include="XmlWsVIPP\PerfilVipp.cs" />
-    <Compile Include="XmlWsVIPP\Volumes.cs" />
     <Compile Include="XmlWsVIPP\ContratoEct.cs" />
     <Compile Include="XmlWsVIPP\NotaFiscal.cs" />
     <Compile Include="XmlWsVIPP\NotasFiscais.cs" />
     <Compile Include="XmlWsVIPP\PostagemVipp.cs" />
     <Compile Include="XmlWsVIPP\Servico.cs" />
-    <Compile Include="XmlWsVIPP\VolumeObjeto.cs" />
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

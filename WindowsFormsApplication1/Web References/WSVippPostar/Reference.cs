@@ -393,6 +393,13 @@ namespace IntegradorWebService.WSVippPostar {
         
         private string idPerfilField;
         
+        public PerfilVipp(string usuarioField, string tokenField, string idPerfilField)
+        {
+            this.usuarioField = usuarioField;
+            this.tokenField = tokenField;
+            this.idPerfilField = idPerfilField;
+        }
+
         /// <remarks/>
         public string Usuario {
             get {
@@ -1270,6 +1277,15 @@ namespace IntegradorWebService.WSVippPostar {
         
         private ItemConteudo[] itemConteudoField;
         
+        public DeclaracaoConteudo()
+        {
+        }
+
+        public DeclaracaoConteudo(ItemConteudo[] ItemConteudos)
+        {
+            this.ItemConteudo = ItemConteudos;
+        }
+
         /// <remarks/>
         public string DocumentoRemetente {
             get {
@@ -1329,7 +1345,12 @@ namespace IntegradorWebService.WSVippPostar {
         private int quantidadeField;
         
         private string valorField;
-        
+
+        public ItemConteudo(string valor)
+        {
+            Valor = valor;
+        }
+
         /// <remarks/>
         public string DescricaoConteudo {
             get {
@@ -1380,7 +1401,20 @@ namespace IntegradorWebService.WSVippPostar {
         private NotaFiscal[] notasFiscaisField;
         
         private VolumeObjeto[] volumesField;
-        
+        private IntegradorWebService.ContratoEct contratoEct;
+        private XmlWsVIPP.Servico servico;
+        private NotasFiscais notasFiscais;
+
+        public Postagem(PerfilVipp perfilVipp, IntegradorWebService.ContratoEct contratoEct, Destinatario destinatario, XmlWsVIPP.Servico servico, NotasFiscais notasFiscais, VolumeObjeto[] volumes)
+        {
+            PerfilVipp = perfilVipp;
+            this.contratoEct = contratoEct;
+            Destinatario = destinatario;
+            this.servico = servico;
+            this.notasFiscais = notasFiscais;
+            Volumes = volumes;
+        }
+
         /// <remarks/>
         public PerfilVipp PerfilVipp {
             get {

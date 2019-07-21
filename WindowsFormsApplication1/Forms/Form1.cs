@@ -64,6 +64,22 @@ namespace IntegradorWebService
             }
             #endregion
 
+            PostarObjeto();
+
+        }
+
+        private void PostarObjeto()
+        {
+            //WSVippPostar.PostagemVipp oSigep = new WSVippPostar.PostagemVipp();
+            //string oRetorno = oSigep.PostarObjeto(lVipp[0]).InnerXml;
+
+            foreach (PostagemVipp o in lVipp)
+            {
+                Postagem oPostagem = new Postagem(o.PerfilVipp, o.ContratoEct, o.Destinatario, o.Servico, o.NotasFiscais, o.Volumes);
+                WSVippPostar.PostagemVipp oSigep = new WSVippPostar.PostagemVipp();
+                string oRetorno = oSigep.PostarObjeto(oPostagem).InnerXml;
+            }
+
         }
 
     }

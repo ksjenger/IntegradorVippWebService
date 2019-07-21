@@ -12,6 +12,10 @@ namespace IntegradorWebService
     [XmlRoot(ElementName = "PostagemVipp", Namespace = "http://www.visualset.inf.br/")]
     public class PostagemVipp
     {
+        
+        private Destinatario oDestinatario;
+        private VolumeObjeto[] oVolumes;
+
         [XmlElement(ElementName = "PerfilVipp", Namespace = "http://www.visualset.inf.br/")]
         public PerfilVipp PerfilVipp { get; set; }
 
@@ -33,20 +37,22 @@ namespace IntegradorWebService
 
 
         [XmlElement(ElementName = "Volumes", Namespace = "http://www.visualset.inf.br/")]
-        public Volumes[] Volumes { get; set; }
+        public VolumeObjeto[] Volumes { get; set; }
 
-        public PostagemVipp(PerfilVipp perfilVipp, ContratoEct contratoEct, Destinatario destinatario, Servico servico, NotasFiscais notasFiscais, Volumes[] volumes)
-        {
-            this.PerfilVipp = perfilVipp;
-            this.ContratoEct = contratoEct;
-            this.Destinatario = destinatario;
-            this.Servico = servico;
-            this.NotasFiscais = notasFiscais;
-            this.Volumes = volumes;
-        }
+   
 
         public PostagemVipp()
         {
+        }
+
+        public PostagemVipp(PerfilVipp perfilVipp, ContratoEct contratoEct, Destinatario destinatario, Servico servico, NotasFiscais notasFiscais, VolumeObjeto[] volumes)
+        {
+            PerfilVipp = perfilVipp;
+            ContratoEct = contratoEct;
+            Destinatario = destinatario;
+            Servico = servico;
+            NotasFiscais = notasFiscais;
+            Volumes = volumes;
         }
     }
 
