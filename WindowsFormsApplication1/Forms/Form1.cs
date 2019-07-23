@@ -9,19 +9,18 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
-using IntegradorWebService.WSVippPostar;
 using System.Runtime.InteropServices;
 using Excel = Microsoft.Office.Interop.Excel;
-using IntegradorWebService.XmlWsVIPP;
 using Microsoft.Office.Interop.Excel;
 using IntegradorWebService.Services;
+using WindowsFormsApplication1.WSVippPostar;
 
 namespace IntegradorWebService
 {
     public partial class Form1 : Form
     {
 
-        List<PostagemVipp> lVipp = new List<PostagemVipp>();
+        List<Postagem> lVipp = new List<Postagem>();
 
         public Form1()
         {
@@ -55,7 +54,7 @@ namespace IntegradorWebService
 
                 String path = openFileDialog.FileName;
                 lVipp = ProcessaPlanilha.ListaDePostagem(path);
-                
+
                 GC.Collect();
 
                 //WSVippPostar.PostagemVipp oSigep = new WSVippPostar.PostagemVipp();
@@ -73,11 +72,13 @@ namespace IntegradorWebService
             //WSVippPostar.PostagemVipp oSigep = new WSVippPostar.PostagemVipp();
             //string oRetorno = oSigep.PostarObjeto(lVipp[0]).InnerXml;
 
-            foreach (PostagemVipp o in lVipp)
+            foreach (Postagem o in lVipp)
             {
                 Postagem oPostagem = new Postagem(o.PerfilVipp, o.ContratoEct, o.Destinatario, o.Servico, o.NotasFiscais, o.Volumes);
-                WSVippPostar.PostagemVipp oSigep = new WSVippPostar.PostagemVipp();
+                PostagemVipp oSigep = new PostagemVipp();
                 string oRetorno = oSigep.PostarObjeto(oPostagem).InnerXml;
+
+
             }
 
         }

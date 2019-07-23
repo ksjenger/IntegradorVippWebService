@@ -83,15 +83,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
-    <Compile Include="XmlWsVIPP\DeclaracaoConteudo.cs" />
-    <Compile Include="XmlWsVIPP\Erro.cs" />
-    <Compile Include="XmlWsVIPP\ItemConteudo.cs" />
-    <Compile Include="XmlWsVIPP\ListaErros.cs" />
-    <Compile Include="XmlWsVIPP\ContratoEct.cs" />
-    <Compile Include="XmlWsVIPP\NotaFiscal.cs" />
-    <Compile Include="XmlWsVIPP\NotasFiscais.cs" />
-    <Compile Include="XmlWsVIPP\PostagemVipp.cs" />
-    <Compile Include="XmlWsVIPP\Servico.cs" />
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

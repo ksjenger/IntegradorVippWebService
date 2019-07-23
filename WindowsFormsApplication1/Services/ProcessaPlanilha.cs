@@ -1,9 +1,9 @@
 ﻿using IntegradorWebService;
-using IntegradorWebService.WSVippPostar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using WindowsFormsApplication1.WSVippPostar;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace IntegradorWebService.Services
@@ -11,14 +11,14 @@ namespace IntegradorWebService.Services
     class ProcessaPlanilha
     {
         #region Processa Planilha
-        public static List<PostagemVipp> ListaDePostagem(String path)
+        public static List<Postagem> ListaDePostagem(String path)
         {
             #region Recupera a formatação da planilha do Settings.settings
             List<FormatacaoPlanilha> lFormatacao = new List<FormatacaoPlanilha>();
             lFormatacao = FormatacaoPlanilha.ListarFormatacao();
             #endregion
 
-            List<PostagemVipp> lVipp = new List<PostagemVipp>();
+            List<Postagem> lVipp = new List<Postagem>();
             Excel.Application xlsAPP = new Excel.Application();
             Excel.Workbook xlsWorkbook = xlsAPP.Workbooks.Open(path, 0, true, 5, "", "", true, Excel.XlPlatform.xlWindows, "", false, false, 0, false, false, false);
             Excel.Sheets xlsSheets = xlsWorkbook.Worksheets;
@@ -93,28 +93,29 @@ namespace IntegradorWebService.Services
 
                         PerfilVipp oPerfilVipp = new PerfilVipp("webservice", "testewebservice", "606");
 
-                        PostagemVipp oPostagemVipp = new PostagemVipp(null, null, oDestinatario, null, null, oVolumeObjetos);
+
+                        Postagem oPostagem = new Postagem(oPerfilVipp, null, oDestinatario, null, null, oVolumeObjetos);
 
 
-                        PostagemVipp oPostagemExistente = (from o in lVipp
-                                                           where o.Volumes[0].CodigoBarraCliente.Equals(
-                                           (oPostagemVipp.Volumes[0].CodigoBarraCliente))
-                                                           select o).FirstOrDefault();
+                        Postagem oPostagemExistente = (from o in lVipp
+                                                       where o.Volumes[0].CodigoBarraCliente.Equals(
+                                                        oPostagem.Volumes[0].CodigoBarraCliente)
+                                                       select o).FirstOrDefault();
                         if (oPostagemExistente == null)
                         {
-                            lVipp.Add(oPostagemVipp);
+                            lVipp.Add(oPostagem);
                         }
                         else
                         {
-                            
-                            ItemConteudo[] x = oPostagemVipp.Volumes[0].DeclaracaoConteudo.ItemConteudo;
+
+                            ItemConteudo[] x = oPostagem.Volumes[0].DeclaracaoConteudo.ItemConteudo;
                             Array.Resize(ref x, x.Length + 1);
                             x[x.Length - 1] = oPostagemExistente.Volumes[0].DeclaracaoConteudo.ItemConteudo[0];
                             oPostagemExistente.Volumes[0].DeclaracaoConteudo.ItemConteudo = x;
                             lVipp.Add(oPostagemExistente);
                         }
 
-                        if (oPostagemVipp.Destinatario.Nome.Equals(string.Empty))
+                        if (oPostagem.Destinatario.Nome.Equals(string.Empty))
                         {
                             break;
                         }
