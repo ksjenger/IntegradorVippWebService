@@ -13,22 +13,21 @@
 // 
 #pragma warning disable 1591
 
-namespace WindowsFormsApplication1.WSVippPostar {
+namespace IntegradorWebService.WSVIPP {
     using System;
     using System.Web.Services;
     using System.Diagnostics;
     using System.Web.Services.Protocols;
     using System.Xml.Serialization;
     using System.ComponentModel;
-    using IntegradorWebService;
-    using IntegradorWebService.XmlWsVIPP;
-
+    
 
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="PostagemVippSoap", Namespace="http://www.visualset.inf.br/")]
+    
     public partial class PostagemVipp : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback BloquearObjetoCorreiosOperationCompleted;
@@ -49,8 +48,7 @@ namespace WindowsFormsApplication1.WSVippPostar {
         
         /// <remarks/>
         public PostagemVipp() {
-            //this.Url = global::WindowsFormsApplication1.Properties.Settings.Default.WindowsFormsApplication1_WSVippPostar_PostagemVipp;
-            this.Url = global::IntegradorWebService.Properties.Settings.Default.WindowsFormsApplication1_WSVippPostar_PostagemVipp;
+            this.Url = global::WindowsFormsApplication1.Properties.Settings.Default.IntegradorWebService_WSVIPP_PostagemVipp;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -393,15 +391,7 @@ namespace WindowsFormsApplication1.WSVippPostar {
         private string tokenField;
         
         private string idPerfilField;
-
-
-        public PerfilVipp(string usuarioField, string tokenField, string idPerfilField)
-        {
-            this.usuarioField = usuarioField;
-            this.tokenField = tokenField;
-            this.idPerfilField = idPerfilField;
-        }
-
+        
         /// <remarks/>
         public string Usuario {
             get {
@@ -1081,6 +1071,7 @@ namespace WindowsFormsApplication1.WSVippPostar {
         private string vlrACobrarField;
         
         private string etiquetaField;
+
         
         /// <remarks/>
         public string Peso {
@@ -1278,18 +1269,7 @@ namespace WindowsFormsApplication1.WSVippPostar {
         private int pesoTotalField;
         
         private ItemConteudo[] itemConteudoField;
-        private ItemConteudo[] oItemConteudos;
-
-        public DeclaracaoConteudo()
-        {
-        }
-
-        public DeclaracaoConteudo(ItemConteudo[] oItemConteudos)
-        {
-            this.ItemConteudo = oItemConteudos;
-        }
-
-
+        
         /// <remarks/>
         public string DocumentoRemetente {
             get {
@@ -1337,6 +1317,7 @@ namespace WindowsFormsApplication1.WSVippPostar {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.visualset.inf.br/")]
+
     public partial class ItemConteudo {
         
         private string descricaoConteudoField;
@@ -1344,12 +1325,7 @@ namespace WindowsFormsApplication1.WSVippPostar {
         private int quantidadeField;
         
         private string valorField;
-
-        public ItemConteudo(string valor)
-        {
-            Valor = valor;
-        }
-
+        
         /// <remarks/>
         public string DescricaoConteudo {
             get {
@@ -1400,22 +1376,7 @@ namespace WindowsFormsApplication1.WSVippPostar {
         private NotaFiscal[] notasFiscaisField;
         
         private VolumeObjeto[] volumesField;
-        private PerfilVipp perfilVipp;
-        private IntegradorWebService.ContratoEct contratoEct;
-        private Destinatario destinatario;
-        private IntegradorWebService.XmlWsVIPP.Servico servico;
-        private NotasFiscais notasFiscais;
-        private VolumeObjeto[] volumes;
 
-        public Postagem(PerfilVipp perfilVipp, IntegradorWebService.ContratoEct contratoEct, Destinatario destinatario, IntegradorWebService.XmlWsVIPP.Servico servico, NotasFiscais notasFiscais, VolumeObjeto[] volumes)
-        {
-            this.perfilVipp = perfilVipp;
-            this.contratoEct = contratoEct;
-            this.destinatario = destinatario;
-            this.servico = servico;
-            this.notasFiscais = notasFiscais;
-            this.volumes = volumes;
-        }
 
         /// <remarks/>
         public PerfilVipp PerfilVipp {

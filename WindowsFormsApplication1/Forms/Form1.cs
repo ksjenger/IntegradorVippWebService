@@ -13,7 +13,8 @@ using System.Runtime.InteropServices;
 using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Excel;
 using IntegradorWebService.Services;
-using WindowsFormsApplication1.WSVippPostar;
+using IntegradorWebService.WSVIPP;
+
 
 namespace IntegradorWebService
 {
@@ -74,12 +75,32 @@ namespace IntegradorWebService
 
             foreach (Postagem o in lVipp)
             {
-                Postagem oPostagem = new Postagem(o.PerfilVipp, o.ContratoEct, o.Destinatario, o.Servico, o.NotasFiscais, o.Volumes);
-                PostagemVipp oSigep = new PostagemVipp();
+                WSVIPP.Postagem oPostagem = new WSVIPP.Postagem
+                {
+                    Destinatario = o.Destinatario,
+                    ContratoEct = o.ContratoEct,
+                    NotasFiscais = o.NotasFiscais,
+                    PerfilVipp = new WSVIPP.PerfilVipp()
+                };
+                oPostagem.PerfilVipp.Usuario = o.PerfilVipp.Usuario;
+                oPostagem.PerfilVipp.Token = o.PerfilVipp.Token;
+                oPostagem.PerfilVipp.IdPerfil = o.PerfilVipp.IdPerfil;
+                oPostagem.Servico = o.Servico;
+                oPostagem.Volumes = o.Volumes;
+
+
+                /*oPostagem.Volumes[0] = new WSVIPP.VolumeObjeto
+                {
+                    CodigoBarraCliente = o.VolumeObjeto[0].CodigoBarraCliente
+                };*/
+
+                WSVIPP.PostagemVipp oSigep = new WSVIPP.PostagemVipp();
+                
                 string oRetorno = oSigep.PostarObjeto(oPostagem).InnerXml;
 
-
             }
+
+
 
         }
 

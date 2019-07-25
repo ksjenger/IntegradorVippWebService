@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WindowsFormsApplication1.WSVippPostar;
+using IntegradorWebService.WSVIPP;
 using Excel = Microsoft.Office.Interop.Excel;
+using ItemConteudo = IntegradorWebService.WSVIPP.ItemConteudo;
 
 namespace IntegradorWebService.Services
 {
@@ -17,7 +18,6 @@ namespace IntegradorWebService.Services
             List<FormatacaoPlanilha> lFormatacao = new List<FormatacaoPlanilha>();
             lFormatacao = FormatacaoPlanilha.ListarFormatacao();
             #endregion
-
             List<Postagem> lVipp = new List<Postagem>();
             Excel.Application xlsAPP = new Excel.Application();
             Excel.Workbook xlsWorkbook = xlsAPP.Workbooks.Open(path, 0, true, 5, "", "", true, Excel.XlPlatform.xlWindows, "", false, false, 0, false, false, false);
@@ -35,7 +35,7 @@ namespace IntegradorWebService.Services
                     foreach (Excel.Range xlsWorkCell in xlsWorksRows)
                     {
                         Destinatario oDestinatario = new Destinatario();
-                        VolumeObjeto[] oVolumeObjetos = new VolumeObjeto[] { new VolumeObjeto() };
+                        WSVIPP.VolumeObjeto[] oVolumeObjetos = new WSVIPP.VolumeObjeto[] { new WSVIPP.VolumeObjeto() };
                         ItemConteudo[] oItemConteudos;
                         DeclaracaoConteudo[] oDeclaracaoConteudos = new DeclaracaoConteudo[] { new DeclaracaoConteudo() };
                         Excel.Range xlsCell = xlsWorkCell.Cells;
@@ -48,6 +48,11 @@ namespace IntegradorWebService.Services
                             int coluna = list.Coluna;
                             Excel.Range AtributoValor = xlsCell.Item[coluna];
                             string valor = AtributoValor.Text;
+
+                            if (atributo.Equals("UF"))
+                            {
+                                oDestinatario.UF = valor;
+                            }
 
                             if (atributo.Equals("Destinatario"))
                             {
@@ -79,35 +84,55 @@ namespace IntegradorWebService.Services
                             }
                             else if (atributo.Equals("Conteudo"))
                             {
-                                ItemConteudo oItemConteudo = new ItemConteudo(valor);
+
+                                ItemConteudo oItemConteudo = new ItemConteudo()
+                                {
+                                    DescricaoConteudo = valor, Quantidade = 1, Valor = "100"
+                                    
+                                };
+
                                 oItemConteudos = new ItemConteudo[] { oItemConteudo };
-                                oVolumeObjetos[0].DeclaracaoConteudo = new DeclaracaoConteudo(oItemConteudos);
+                                oVolumeObjetos[0].DeclaracaoConteudo = new DeclaracaoConteudo()
+                                {
+                                    ItemConteudo = oItemConteudos, PesoTotal = 10
+                                };
+
+
                             }
                             else if (atributo.Equals("Observacao1"))
                             {
-                                VolumeObjeto oVolumeObjeto = new VolumeObjeto();
-                                oVolumeObjeto.CodigoBarraCliente = valor;
-                                oVolumeObjetos[0].CodigoBarraCliente = oVolumeObjeto.CodigoBarraCliente;
+                                WSVIPP.VolumeObjeto oVolumeObjeto = new WSVIPP.VolumeObjeto
+                                {
+                                    CodigoBarraVolume = valor
+                                };
+                                oVolumeObjetos[0].CodigoBarraVolume = oVolumeObjeto.CodigoBarraVolume;
+
                             }
                         }//fim do For da Lista de Formatacao
 
-                        PerfilVipp oPerfilVipp = new PerfilVipp("webservice", "testewebservice", "606");
+                        PerfilVipp oPerfilVipp = new PerfilVipp
+                        {
+                            Usuario = "webservice",
+                            Token = "testewebservice",
+                            IdPerfil = "606"
+                        };
 
-
-                        Postagem oPostagem = new Postagem(oPerfilVipp, null, oDestinatario, null, null, oVolumeObjetos);
+                        Postagem oPostagem = new Postagem()
+                        {
+                            Destinatario = oDestinatario, PerfilVipp = oPerfilVipp, Volumes = oVolumeObjetos 
+                        };
 
 
                         Postagem oPostagemExistente = (from o in lVipp
-                                                       where o.Volumes[0].CodigoBarraCliente.Equals(
-                                                        oPostagem.Volumes[0].CodigoBarraCliente)
-                                                       select o).FirstOrDefault();
+                                                                    where o.Volumes[0].CodigoBarraVolume.Equals(
+                                                                     oPostagem.Volumes[0].CodigoBarraVolume)
+                                                                    select o).FirstOrDefault();
                         if (oPostagemExistente == null)
                         {
                             lVipp.Add(oPostagem);
                         }
                         else
                         {
-
                             ItemConteudo[] x = oPostagem.Volumes[0].DeclaracaoConteudo.ItemConteudo;
                             Array.Resize(ref x, x.Length + 1);
                             x[x.Length - 1] = oPostagemExistente.Volumes[0].DeclaracaoConteudo.ItemConteudo[0];
@@ -120,12 +145,10 @@ namespace IntegradorWebService.Services
                             break;
                         }
 
-
                     }// fim do for que acessa as linhas
 
                 }// fim do if q acessa a aba da Planilha com o nome "Control Respuesta".
 
-                //WSVippPostar.PostagemVipp oSigep = new WSVippPostar.PostagemVipp();
             }// fim do For que acessa todas as planilhas
             return lVipp;
         }

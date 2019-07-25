@@ -30,7 +30,8 @@ namespace IntegradorWebService
         {
             List<FormatacaoPlanilha> lista = new List<FormatacaoPlanilha>();
 
-            string layout = IntegradorWebService.Properties.Settings.Default.Layout;
+            //string layout = IntegradorWebService.Properties.Settings.Default.Layout;
+            string layout = WindowsFormsApplication1.Properties.Settings.Default.Layout;
             char[] charsToTrim = { '"', ' ', '\\'};
             layout = layout.Trim(charsToTrim);
             byte[] data = Convert.FromBase64String(layout.Trim());
