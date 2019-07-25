@@ -12,7 +12,7 @@ namespace IntegradorWebService.Services
     class ProcessaPlanilha
     {
         #region Processa Planilha
-        public static List<Postagem> ListaDePostagem(String path)
+        public static List<Postagem> ListaDePostagem(string path)
         {
             #region Recupera a formatação da planilha do Settings.settings
             List<FormatacaoPlanilha> lFormatacao = new List<FormatacaoPlanilha>();
@@ -137,7 +137,6 @@ namespace IntegradorWebService.Services
                             Array.Resize(ref x, x.Length + 1);
                             x[x.Length - 1] = oPostagemExistente.Volumes[0].DeclaracaoConteudo.ItemConteudo[0];
                             oPostagemExistente.Volumes[0].DeclaracaoConteudo.ItemConteudo = x;
-                            lVipp.Add(oPostagemExistente);
                         }
 
                         if (oPostagem.Destinatario.Nome.Equals(string.Empty))

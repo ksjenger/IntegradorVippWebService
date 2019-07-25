@@ -16,12 +16,15 @@ using IntegradorWebService.Services;
 using IntegradorWebService.WSVIPP;
 
 
+
+
 namespace IntegradorWebService
 {
     public partial class Form1 : Form
     {
 
         List<Postagem> lVipp = new List<Postagem>();
+        string path;
 
         public Form1()
         {
@@ -30,7 +33,6 @@ namespace IntegradorWebService
 
         private void BtnSelecione_Click(object sender, EventArgs e)
         {
-
             #region Serialização do arquivo XML 
             /*
             XmlSerializer xsSubmit = new XmlSerializer(typeof(List<FormatacaoPlanilha>));
@@ -53,7 +55,7 @@ namespace IntegradorWebService
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
 
-                String path = openFileDialog.FileName;
+                path = openFileDialog.FileName;
                 lVipp = ProcessaPlanilha.ListaDePostagem(path);
 
                 GC.Collect();
@@ -64,47 +66,11 @@ namespace IntegradorWebService
             }
             #endregion
 
-            PostarObjeto();
-
-        }
-
-        private void PostarObjeto()
-        {
-            //WSVippPostar.PostagemVipp oSigep = new WSVippPostar.PostagemVipp();
-            //string oRetorno = oSigep.PostarObjeto(lVipp[0]).InnerXml;
-
-            foreach (Postagem o in lVipp)
-            {
-                WSVIPP.Postagem oPostagem = new WSVIPP.Postagem
-                {
-                    Destinatario = o.Destinatario,
-                    ContratoEct = o.ContratoEct,
-                    NotasFiscais = o.NotasFiscais,
-                    PerfilVipp = new WSVIPP.PerfilVipp()
-                };
-                oPostagem.PerfilVipp.Usuario = o.PerfilVipp.Usuario;
-                oPostagem.PerfilVipp.Token = o.PerfilVipp.Token;
-                oPostagem.PerfilVipp.IdPerfil = o.PerfilVipp.IdPerfil;
-                oPostagem.Servico = o.Servico;
-                oPostagem.Volumes = o.Volumes;
-
-
-                /*oPostagem.Volumes[0] = new WSVIPP.VolumeObjeto
-                {
-                    CodigoBarraCliente = o.VolumeObjeto[0].CodigoBarraCliente
-                };*/
-
-                WSVIPP.PostagemVipp oSigep = new WSVIPP.PostagemVipp();
-                
-                string oRetorno = oSigep.PostarObjeto(oPostagem).InnerXml;
-
-            }
-
+            #region Chama o metodo para Postar Objeto
+            VIPP.PostarObjeto.Postagem(lVipp);
+            #endregion
 
 
         }
-
     }
-
-
 }

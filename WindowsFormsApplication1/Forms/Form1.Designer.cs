@@ -33,13 +33,20 @@
             this.btnSelecione = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // btnSelecione
             // 
-            this.btnSelecione.Location = new System.Drawing.Point(62, 132);
+            this.btnSelecione.Location = new System.Drawing.Point(106, 58);
             this.btnSelecione.Name = "btnSelecione";
             this.btnSelecione.Size = new System.Drawing.Size(144, 42);
             this.btnSelecione.TabIndex = 0;
@@ -49,7 +56,7 @@
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(365, 138);
             this.Controls.Add(this.btnSelecione);
             this.Name = "Form1";
             this.ResumeLayout(false);

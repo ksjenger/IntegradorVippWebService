@@ -83,6 +83,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="VIPP\PostarObjeto.cs" />
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
