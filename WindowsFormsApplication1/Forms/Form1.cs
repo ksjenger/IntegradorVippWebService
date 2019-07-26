@@ -14,9 +14,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Excel;
 using IntegradorWebService.Services;
 using IntegradorWebService.WSVIPP;
-
-
-
+using IntegradorWebService.ExcelServices;
 
 namespace IntegradorWebService
 {
@@ -24,7 +22,9 @@ namespace IntegradorWebService
     {
 
         List<Postagem> lVipp = new List<Postagem>();
-        string path;
+
+        public static string path;
+        public static string caminho;
 
         public Form1()
         {
@@ -52,18 +52,28 @@ namespace IntegradorWebService
 
             #region Abre o Arquivo
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
 
                 path = openFileDialog.FileName;
-                lVipp = ProcessaPlanilha.ListaDePostagem(path);
-
-                GC.Collect();
-
-                //WSVippPostar.PostagemVipp oSigep = new WSVippPostar.PostagemVipp();
-                //string oRetorno = oSigep.PostarObjeto(lVipp[0]).InnerXml;
-
             }
+
+            lVipp = ProcessaPlanilha.ListaDePostagem(path);
+            MessageBox.Show("Importacao Finalizada");
+            GC.Collect();
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.DefaultExt = "xlsx";
+            saveFileDialog.FileName = "ArquivoProcessado";
+            
+            if(saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                path = saveFileDialog.FileName;
+                GravaRetornoExcel.GravaRetorno();
+            }
+            
+
+
             #endregion
 
             #region Chama o metodo para Postar Objeto

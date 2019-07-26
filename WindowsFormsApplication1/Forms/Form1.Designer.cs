@@ -46,7 +46,7 @@
             // 
             // btnSelecione
             // 
-            this.btnSelecione.Location = new System.Drawing.Point(106, 58);
+            this.btnSelecione.Location = new System.Drawing.Point(105, 38);
             this.btnSelecione.Name = "btnSelecione";
             this.btnSelecione.Size = new System.Drawing.Size(144, 42);
             this.btnSelecione.TabIndex = 0;
@@ -56,7 +56,7 @@
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(365, 138);
+            this.ClientSize = new System.Drawing.Size(365, 232);
             this.Controls.Add(this.btnSelecione);
             this.Name = "Form1";
             this.ResumeLayout(false);

@@ -11,6 +11,7 @@ namespace IntegradorWebService.Services
 {
     class ProcessaPlanilha
     {
+
         #region Processa Planilha
         public static List<Postagem> ListaDePostagem(string path)
         {
@@ -147,7 +148,7 @@ namespace IntegradorWebService.Services
                     }// fim do for que acessa as linhas
 
                 }// fim do if q acessa a aba da Planilha com o nome "Control Respuesta".
-
+                xlsAPP.Quit();
             }// fim do For que acessa todas as planilhas
             return lVipp;
         }
