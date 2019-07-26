@@ -51,35 +51,44 @@ namespace IntegradorWebService
             #endregion
 
             #region Abre o Arquivo
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
+                openFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
 
-                path = openFileDialog.FileName;
+                    path = openFileDialog.FileName;
+                }
             }
+            #endregion
 
             lVipp = ProcessaPlanilha.ListaDePostagem(path);
-            MessageBox.Show("Importacao Finalizada");
-            GC.Collect();
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.DefaultExt = "xlsx";
-            saveFileDialog.FileName = "ArquivoProcessado";
-            
-            if(saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                path = saveFileDialog.FileName;
-                GravaRetornoExcel.GravaRetorno();
-            }
-            
 
 
-            #endregion
 
             #region Chama o metodo para Postar Objeto
             VIPP.PostarObjeto.Postagem(lVipp);
             #endregion
 
+
+            #region Salvar arquivo processado
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.AddExtension = true;
+                saveFileDialog.DefaultExt = "xlsx";
+                saveFileDialog.FileName = "ArquivoProcessado.xlsx";
+                saveFileDialog.Title = "Salvar o Arquivo Processado";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    caminho = saveFileDialog.FileName;
+                    GravaRetornoExcel.GravaRetorno();
+                }
+            }
+
+            #endregion
+
+            GC.Collect();
 
         }
     }

@@ -14,7 +14,8 @@ namespace IntegradorWebService.VIPP
 
         public string Status { get; set; }
 
-        public static List<Retorno> lRetorno = new List<Retorno>();
+        public static List<RetornoValida> lRetornoValida = new List<RetornoValida>();
+        public static List<RetornoInvalida> lRetornoInvalida = new List<RetornoInvalida>();
 
         #region Recebe o XML e retorna uma String com o Status da Solicitacao, Destinatario e Numero do Objeto
         public static string RetornoPostagem(string xmlString)
@@ -47,23 +48,21 @@ namespace IntegradorWebService.VIPP
                 {
 
                     XmlNodeList VolumeObjetos = nodeVolume.SelectNodes("VolumeObjeto");
-
+                   
                     foreach (XmlNode nodeVolumeObjeto in VolumeObjetos)
                     {
                         observacao = nodeVolumeObjeto.SelectSingleNode("CodigoBarraVolume").InnerText;
                         etiqueta = nodeVolumeObjeto.SelectSingleNode("Etiqueta").InnerText;
                     }
-
                 }
 
                 foreach (XmlNode nodeListaErros in listaErros)
                 {
                     XmlNodeList erro = nodeListaErros.SelectNodes("Erro");
-
+                    cont = 1;
                     foreach (XmlNode nodeErros in nodeListaErros)
                     {
-
-                        erros = erros + " - Erro: " + cont + " " + nodeErros.SelectSingleNode("Descricao").InnerText;
+                        erros = erros + " | Erro " + cont + " - " + nodeErros.SelectSingleNode("Descricao").InnerText;
                         cont++;
                     }
                 }
@@ -79,7 +78,7 @@ namespace IntegradorWebService.VIPP
                     Nome = nomeDestinatario,
                     Observacao = observacao
                 };
-                lRetorno.Add(oRetornoValida);
+                lRetornoValida.Add(oRetornoValida);
             }
             else
             {
@@ -91,7 +90,7 @@ namespace IntegradorWebService.VIPP
                     Status = statusPostagem,
                     Erro = erros
                 };
-                lRetorno.Add(oRetornoInvalida);
+                lRetornoInvalida.Add(oRetornoInvalida);
             }
             return mensagem;
         }
