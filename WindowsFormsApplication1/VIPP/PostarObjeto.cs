@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows;
 using System.Xml;
 
 namespace IntegradorWebService.VIPP
@@ -12,7 +13,7 @@ namespace IntegradorWebService.VIPP
 
         public List<string> lRetorno = new List<string>();
 
-        #region Recebe a lista, Faz a chamada no Web Service. O metodo retorna um String com o Xml Response
+        #region Recebe a lista, Faz a chamada no Web Service. O metodo faz outra chamada para guardar o retorno em 2 listas
         public static void Postagem(List<Postagem> lVipp)
         {
             string oRetorno = null;
@@ -32,13 +33,18 @@ namespace IntegradorWebService.VIPP
                 oPostagem.PerfilVipp.Token = o.PerfilVipp.Token;
                 oPostagem.PerfilVipp.IdPerfil = o.PerfilVipp.IdPerfil;
                 PostagemVipp oSigep = new PostagemVipp();
-                oRetorno = oSigep.PostarObjeto(oPostagem).InnerXml;
+                try
+                {
+                    oRetorno = oSigep.PostarObjeto(oPostagem).InnerXml;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Erro: " + e.Message + " verifique a conexao com a Internet");
+                }
                 Retorno.RetornoPostagem(oRetorno);
+                #endregion
+
             }
         }
-        #endregion
-
-        
     }
-
 }

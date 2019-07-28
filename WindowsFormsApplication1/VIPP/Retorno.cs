@@ -8,12 +8,16 @@ namespace IntegradorWebService.VIPP
 {
     class Retorno
     {
+        #region Atributos
         public string Nome { get; set; }
 
         public string Observacao { get; set; }
 
         public string Status { get; set; }
 
+        #endregion
+
+        //Listas que recebem o retorno em string
         public static List<RetornoValida> lRetornoValida = new List<RetornoValida>();
         public static List<RetornoInvalida> lRetornoInvalida = new List<RetornoInvalida>();
 
@@ -26,7 +30,9 @@ namespace IntegradorWebService.VIPP
             string etiqueta = null;
             string erros = null;
             string mensagem = null;
+            string mensagemErro = null;
             int cont = 1;
+
 
             XmlDocument doc = new XmlDocument();
             doc.LoadXml("<Retorno>" + xmlString + "</Retorno>");
@@ -48,7 +54,7 @@ namespace IntegradorWebService.VIPP
                 {
 
                     XmlNodeList VolumeObjetos = nodeVolume.SelectNodes("VolumeObjeto");
-                   
+
                     foreach (XmlNode nodeVolumeObjeto in VolumeObjetos)
                     {
                         observacao = nodeVolumeObjeto.SelectSingleNode("CodigoBarraVolume").InnerText;
@@ -60,9 +66,14 @@ namespace IntegradorWebService.VIPP
                 {
                     XmlNodeList erro = nodeListaErros.SelectNodes("Erro");
                     cont = 1;
-                    foreach (XmlNode nodeErros in nodeListaErros)
+                    erros = "";
+                    mensagem = "";
+                    foreach (XmlNode nodeErros in erro)
                     {
-                        erros = erros + " | Erro " + cont + " - " + nodeErros.SelectSingleNode("Descricao").InnerText;
+                        //erros = erros + " | Erro " + cont + " - " + nodeErros.SelectSingleNode("Mensagem").InnerText;
+                        mensagem = nodeErros.SelectSingleNode("Mensagem").InnerText;
+                        erros = nodeErros.SelectSingleNode("Descricao").InnerText;
+                        mensagemErro = mensagemErro + "| Erro " + cont + " - " + mensagem + " " + erros;
                         cont++;
                     }
                 }
@@ -88,7 +99,7 @@ namespace IntegradorWebService.VIPP
                     Nome = nomeDestinatario,
                     Observacao = observacao,
                     Status = statusPostagem,
-                    Erro = erros
+                    Erro = mensagemErro
                 };
                 lRetornoInvalida.Add(oRetornoInvalida);
             }

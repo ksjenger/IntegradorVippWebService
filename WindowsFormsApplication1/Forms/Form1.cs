@@ -89,7 +89,7 @@ namespace IntegradorWebService
             #endregion
 
             GC.Collect();
-
+            Close();
         }
     }
 }
