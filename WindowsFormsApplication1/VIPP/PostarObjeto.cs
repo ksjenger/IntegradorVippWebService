@@ -14,12 +14,15 @@ namespace IntegradorWebService.VIPP
         public List<string> lRetorno = new List<string>();
 
         #region Recebe a lista, Faz a chamada no Web Service. O metodo faz outra chamada para guardar o retorno em 2 listas
-        public static void Postagem(List<Postagem> lVipp)
+        public static void Postagem(List<Postagem> lVipp, Form1 frm)
         {
             string oRetorno = null;
+            int cont = 0;
 
             foreach (Postagem o in lVipp)
             {
+                cont++;
+                frm.labelProgresso.Text = "Transmitindo para o VIPP o objeto " + cont + " da lista";
                 Postagem oPostagem = new Postagem
                 {
                     Destinatario = o.Destinatario,
@@ -32,6 +35,7 @@ namespace IntegradorWebService.VIPP
                 oPostagem.PerfilVipp.Usuario = o.PerfilVipp.Usuario;
                 oPostagem.PerfilVipp.Token = o.PerfilVipp.Token;
                 oPostagem.PerfilVipp.IdPerfil = o.PerfilVipp.IdPerfil;
+
                 PostagemVipp oSigep = new PostagemVipp();
                 try
                 {
@@ -41,7 +45,7 @@ namespace IntegradorWebService.VIPP
                 {
                     MessageBox.Show("Erro: " + e.Message + " verifique a conexao com a Internet");
                 }
-                Retorno.RetornoPostagem(oRetorno);
+                Retorno.RetornoPostagem(oRetorno, frm);
                 #endregion
 
             }

@@ -24,14 +24,25 @@ namespace IntegradorWebService
         List<Postagem> lVipp = new List<Postagem>();
 
         public static string path;
-        public static string caminho;
+        public static string nomeArquivo;
+        public static string caminhoArquivo;
+        
+        
+        
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void BtnSelecione_Click(object sender, EventArgs e)
+
+        public Form1(string mensagem)
+        {
+            InitializeComponent();
+            this.labelProgresso.Text = mensagem;
+        }
+
+        void BtnSelecione_Click(object sender, EventArgs e)
         {
             #region Serialização do arquivo XML 
             /*
@@ -56,34 +67,27 @@ namespace IntegradorWebService
                 openFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-
                     path = openFileDialog.FileName;
+                    nomeArquivo = System.IO.Path.GetFileNameWithoutExtension(openFileDialog.FileName);
+                    caminhoArquivo = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
+                    labelPath.Text = path;
+                    if (path != null)
+                    {
+                        labelProgresso.Text = "Importando o Arquivo";
+                        lVipp = ProcessaPlanilha.ListaDePostagem(path, this);
+                        labelProgresso.Text = "Arquivo importado!";
+
+                        #region Chama o metodo para Postar Objeto
+                        VIPP.PostarObjeto.Postagem(lVipp, this);
+                        #endregion
+
+                        labelProgresso.Text = "Salvando o arquivo processado...";
+                        GravaRetornoExcel.GravaRetorno();
+
+                        MessageBox.Show("Importação finalizada!");
+                    }
                 }
-            }
-            #endregion
-
-            lVipp = ProcessaPlanilha.ListaDePostagem(path);
-
-
-
-            #region Chama o metodo para Postar Objeto
-            VIPP.PostarObjeto.Postagem(lVipp);
-            #endregion
-
-
-            #region Salvar arquivo processado
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-            {
-                saveFileDialog.AddExtension = true;
-                saveFileDialog.DefaultExt = "xlsx";
-                saveFileDialog.FileName = "ArquivoProcessado.xlsx";
-                saveFileDialog.Title = "Salvar o Arquivo Processado";
-
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    caminho = saveFileDialog.FileName;
-                    GravaRetornoExcel.GravaRetorno();
-                }
+                
             }
 
             #endregion
@@ -91,5 +95,6 @@ namespace IntegradorWebService
             GC.Collect();
             Close();
         }
+
     }
 }

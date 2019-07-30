@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Excel;
 using IntegradorWebService.VIPP;
+using System.Windows;
 
 namespace IntegradorWebService.ExcelServices
 {
@@ -23,11 +24,18 @@ namespace IntegradorWebService.ExcelServices
             newWorksheetErro = xlsApp.Worksheets.Add();
             newWorksheetOk = xlsApp.Worksheets.Add();
 
+
+            try { 
             //Name the sheet.
             newWorksheetErro.Name = "WebServiceVipp - Erros";
 
             //Name the sheet.
             newWorksheetOk.Name = "WebServiceVipp - ok";
+
+            }catch(System.Runtime.InteropServices.COMException e)
+            {
+                
+            }
 
             //Get the Cells collection.
             Excel.Sheets xlsSheets = xlsWorkbook.Worksheets;
@@ -58,11 +66,7 @@ namespace IntegradorWebService.ExcelServices
                     foreach (RetornoInvalida list in Retorno.lRetornoInvalida)
                     {
                         cont++;
-                        if (list.Observacao.Equals(string.Empty))
-                        {
-                            break;
-                        }
-                        else
+                        if (!list.Observacao.Equals(string.Empty) || !list.Observacao.Equals(null))
                         {
                             xlsWorksRowss.Item[cont, 1] = list.Observacao;
                             xlsWorksRowss.Item[cont, 2] = list.Nome;
@@ -72,7 +76,12 @@ namespace IntegradorWebService.ExcelServices
                     }
                 }
             }
-            xlsApp.ActiveWorkbook.SaveAs(Form1.caminho);
+
+            DateTime saveNow = DateTime.Now;
+            string sdf = saveNow.ToString("dd-MM-yyyy hh-mm-ss");
+
+            string nomeArquivo = Form1.caminhoArquivo + "\\" + Form1.nomeArquivo + " " + sdf + ".xlsx";
+            xlsApp.ActiveWorkbook.SaveAs(nomeArquivo);
             xlsApp.Quit();
             #endregion
         }

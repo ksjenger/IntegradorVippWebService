@@ -22,7 +22,7 @@ namespace IntegradorWebService.VIPP
         public static List<RetornoInvalida> lRetornoInvalida = new List<RetornoInvalida>();
 
         #region Recebe o XML e retorna uma String com o Status da Solicitacao, Destinatario e Numero do Objeto
-        public static string RetornoPostagem(string xmlString)
+        public static string RetornoPostagem(string xmlString, Form1 frm)
         {
             string statusPostagem = null;
             string nomeDestinatario = null;
@@ -70,7 +70,6 @@ namespace IntegradorWebService.VIPP
                     mensagem = "";
                     foreach (XmlNode nodeErros in erro)
                     {
-                        //erros = erros + " | Erro " + cont + " - " + nodeErros.SelectSingleNode("Mensagem").InnerText;
                         mensagem = nodeErros.SelectSingleNode("Mensagem").InnerText;
                         erros = nodeErros.SelectSingleNode("Descricao").InnerText;
                         mensagemErro = mensagemErro + "| Erro " + cont + " - " + mensagem + " " + erros;
