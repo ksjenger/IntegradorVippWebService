@@ -5,7 +5,7 @@ using System.Text;
 
 namespace IntegradorWebService.VIPP
 {
-    class PerfilImportação
+    class PerfilImportacao
     {
         public string Usuario { get; set; }
 
@@ -13,11 +13,5 @@ namespace IntegradorWebService.VIPP
 
         public string IdPerfil { get; set; }
 
-        public PerfilImportação()
-        {
-            Usuario = "testezvp123";
-            Token = "testezvp123";
-            IdPerfil = "5882";
-        }
     }
 }

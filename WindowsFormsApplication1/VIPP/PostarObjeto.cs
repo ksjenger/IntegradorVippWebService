@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Xml;
+using IntegradorWebService.VIPP;
 
 namespace IntegradorWebService.VIPP
 {
@@ -32,9 +33,10 @@ namespace IntegradorWebService.VIPP
                     Servico = o.Servico,
                     Volumes = o.Volumes,
                 };
-                oPostagem.PerfilVipp.Usuario = o.PerfilVipp.Usuario;
-                oPostagem.PerfilVipp.Token = o.PerfilVipp.Token;
-                oPostagem.PerfilVipp.IdPerfil = o.PerfilVipp.IdPerfil;
+                PerfilImportacao perfil = Login.Operfil;
+                oPostagem.PerfilVipp.Usuario = perfil.Usuario;
+                oPostagem.PerfilVipp.Token = perfil.Token;
+                oPostagem.PerfilVipp.IdPerfil = perfil.IdPerfil;
 
                 PostagemVipp oSigep = new PostagemVipp();
                 try

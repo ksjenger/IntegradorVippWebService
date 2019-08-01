@@ -20,65 +20,66 @@ namespace IntegradorWebService.ExcelServices
             Excel.Worksheet newWorksheetErro;
             Excel.Worksheet newWorksheetOk;
 
-            //Add a worksheet to the workbook.
-            newWorksheetErro = xlsApp.Worksheets.Add();
-            newWorksheetOk = xlsApp.Worksheets.Add();
-
-
-            try { 
-            //Name the sheet.
-            newWorksheetErro.Name = "WebServiceVipp - Erros";
-
-            //Name the sheet.
-            newWorksheetOk.Name = "WebServiceVipp - ok";
-
-            }catch(System.Runtime.InteropServices.COMException e)
+            try
             {
-                
-            }
+                //Add a worksheet to the workbook.
+                newWorksheetErro = xlsApp.Worksheets.Add();
+                newWorksheetOk = xlsApp.Worksheets.Add();
 
-            //Get the Cells collection.
-            Excel.Sheets xlsSheets = xlsWorkbook.Worksheets;
 
-            //For que acessa todas as planilhas
-            foreach (Excel.Worksheet xlsWorksheet in xlsSheets)
-            {
-                //Acessa a aba da Planilha com o nome "WebServiceVipp"
-                if (xlsWorksheet.Name.Trim().Equals("WebServiceVipp - ok"))
+                newWorksheetErro.Name = "WebServiceVipp - Erros";
+
+                //Name the sheet.
+                newWorksheetOk.Name = "WebServiceVipp - ok";
+
+                //Get the Cells collection.
+                Excel.Sheets xlsSheets = xlsWorkbook.Worksheets;
+
+                //For que acessa todas as planilhas
+                foreach (Excel.Worksheet xlsWorksheet in xlsSheets)
                 {
-                    Excel.Range xlsWorksRows = xlsWorksheet.Cells;
-                    int cont = 0;
-                    foreach (RetornoValida list in Retorno.lRetornoValida)
+                    //Acessa a aba da Planilha com o nome "WebServiceVipp"
+                    if (xlsWorksheet.Name.Trim().Equals("WebServiceVipp - ok"))
                     {
-                        cont++;
-                        xlsWorksRows.Item[cont, 1] = list.Observacao;
-                        xlsWorksRows.Item[cont, 2] = list.Nome;
-                        xlsWorksRows.Item[cont, 3] = list.Status;
-                        xlsWorksRows.Item[cont, 4] = list.Etiqueta;
-                    }
-                }
-
-                if (xlsWorksheet.Name.Trim().Equals("WebServiceVipp - Erros"))
-                {
-                    Excel.Range xlsWorksRowss = xlsWorksheet.Cells;
-
-                    int cont = 0;
-                    foreach (RetornoInvalida list in Retorno.lRetornoInvalida)
-                    {
-                        cont++;
-                        if (!list.Observacao.Equals(string.Empty) || !list.Observacao.Equals(null))
+                        Excel.Range xlsWorksRows = xlsWorksheet.Cells;
+                        int cont = 0;
+                        foreach (RetornoValida list in Retorno.lRetornoValida)
                         {
-                            xlsWorksRowss.Item[cont, 1] = list.Observacao;
-                            xlsWorksRowss.Item[cont, 2] = list.Nome;
-                            xlsWorksRowss.Item[cont, 3] = list.Status;
-                            xlsWorksRowss.Item[cont, 4] = list.Erro;
+                            cont++;
+                            xlsWorksRows.Item[cont, 1] = list.Observacao;
+                            xlsWorksRows.Item[cont, 2] = list.Nome;
+                            xlsWorksRows.Item[cont, 3] = list.Status;
+                            xlsWorksRows.Item[cont, 4] = list.Etiqueta;
                         }
                     }
+
+                    if (xlsWorksheet.Name.Trim().Equals("WebServiceVipp - Erros"))
+                    {
+                        Excel.Range xlsWorksRowss = xlsWorksheet.Cells;
+
+                        int cont = 0;
+                        foreach (RetornoInvalida list in Retorno.lRetornoInvalida)
+                        {
+                            cont++;
+                            if (!list.Observacao.Equals(string.Empty) || !list.Observacao.Equals(null))
+                            {
+                                xlsWorksRowss.Item[cont, 1] = list.Observacao;
+                                xlsWorksRowss.Item[cont, 2] = list.Nome;
+                                xlsWorksRowss.Item[cont, 3] = list.Status;
+                                xlsWorksRowss.Item[cont, 4] = list.Erro;
+                            }
+                        }
+                    }
+
                 }
+            }
+            catch (System.Runtime.InteropServices.COMException)
+            {
+                MessageBox.Show("Não foi possivel gravar o retorno no arquivo processado, verifique se a planilha está bloqueada");
             }
 
             DateTime saveNow = DateTime.Now;
-            string sdf = saveNow.ToString("dd-MM-yyyy hh-mm-ss");
+            string sdf = saveNow.ToString("dd-MM-yyyy_hh-mm");
 
             string nomeArquivo = Form1.caminhoArquivo + "\\" + Form1.nomeArquivo + " " + sdf + ".xlsx";
             xlsApp.ActiveWorkbook.SaveAs(nomeArquivo);

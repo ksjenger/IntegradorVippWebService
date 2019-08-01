@@ -45,7 +45,10 @@ namespace IntegradorWebService.Services
                             ItemConteudo[] oItemConteudos;
                             DeclaracaoConteudo[] oDeclaracaoConteudos = new DeclaracaoConteudo[] { new DeclaracaoConteudo() };
                             Excel.Range xlsCell = xlsWorkCell.Cells;
+                            int quantidade = 0;
 
+
+                            #region Lista de Formatação
                             //For para percorrer a lista de Formatação
 
                             foreach (FormatacaoPlanilha list in lFormatacao)
@@ -117,21 +120,32 @@ namespace IntegradorWebService.Services
                                     oVolumeObjetos[0].CodigoBarraVolume = oVolumeObjeto.CodigoBarraVolume;
 
                                 }
+                                else if (atributo.Equals("Quantidade"))
+                                {
+                                    try
+                                    {
+                                        quantidade = int.Parse(valor);
+                                    }
+                                    catch (System.FormatException)
+                                    {
+                                        quantidade = 0;
+                                    }
+                                }
+
+                                else if (atributo.Equals("DocumentoDestinatario"))
+                                {
+                                    oVolumeObjetos[0].DeclaracaoConteudo.DocumentoDestinatario = valor;
+                                }
+
                             }//fim do For da Lista de Formatacao
-                            #region Perfil de Importação VIPP
-                            VIPP.PerfilImportação vippPerfil = new VIPP.PerfilImportação();
-                            PerfilVipp oPerfilVipp = new PerfilVipp
-                            {
-                                Usuario = vippPerfil.Usuario,
-                                Token = vippPerfil.Token,
-                                IdPerfil = vippPerfil.IdPerfil
-                            };
+
                             #endregion
+
+                            
 
                             Postagem oPostagem = new Postagem()
                             {
                                 Destinatario = oDestinatario,
-                                PerfilVipp = oPerfilVipp,
                                 Volumes = oVolumeObjetos
                             };
 
@@ -165,9 +179,10 @@ namespace IntegradorWebService.Services
 
                 }// fim do For que acessa todas as planilhas
             }
-            catch (System.Runtime.InteropServices.COMException e)
+            catch (System.Runtime.InteropServices.COMException)
             {
-                
+                MessageBox.Show("Ocorreu um erro com o arquivo, o mesmo é invalido ou está mal formatado");
+                frm.Close();
             }
             xlsAPP.Quit();
             return lVipp;

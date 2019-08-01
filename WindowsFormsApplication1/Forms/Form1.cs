@@ -15,6 +15,7 @@ using Microsoft.Office.Interop.Excel;
 using IntegradorWebService.Services;
 using IntegradorWebService.WSVIPP;
 using IntegradorWebService.ExcelServices;
+using IntegradorWebService.VIPP;
 
 namespace IntegradorWebService
 {
@@ -26,21 +27,18 @@ namespace IntegradorWebService
         public static string path;
         public static string nomeArquivo;
         public static string caminhoArquivo;
-        
-        
-        
 
         public Form1()
         {
             InitializeComponent();
         }
 
-
         public Form1(string mensagem)
         {
             InitializeComponent();
             this.labelProgresso.Text = mensagem;
         }
+
 
         void BtnSelecione_Click(object sender, EventArgs e)
         {
@@ -83,17 +81,16 @@ namespace IntegradorWebService
 
                         labelProgresso.Text = "Salvando o arquivo processado...";
                         GravaRetornoExcel.GravaRetorno();
-
                         MessageBox.Show("Importação finalizada!");
                     }
-                }
-                
+                }                
             }
 
             #endregion
 
             GC.Collect();
             Close();
+
         }
 
     }
