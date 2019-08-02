@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("IntegradorWebService")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Importador de arquivos personalzados Visualset")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Visual Set Informática")]
 [assembly: AssemblyProduct("IntegradorWebService")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]

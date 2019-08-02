@@ -179,11 +179,16 @@ namespace IntegradorWebService.Services
 
                 }// fim do For que acessa todas as planilhas
             }
-            catch (System.Runtime.InteropServices.COMException)
+            catch (Exception)
             {
                 MessageBox.Show("Ocorreu um erro com o arquivo, o mesmo é invalido ou está mal formatado");
-                frm.Close();
             }
+            finally
+            {
+                frm.Close();
+                GC.Collect();
+            }
+
             xlsAPP.Quit();
             return lVipp;
 

@@ -62,6 +62,7 @@ namespace IntegradorWebService
             #region Abre o Arquivo
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
+
                 openFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -69,27 +70,28 @@ namespace IntegradorWebService
                     nomeArquivo = System.IO.Path.GetFileNameWithoutExtension(openFileDialog.FileName);
                     caminhoArquivo = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
                     labelPath.Text = path;
-                    if (path != null)
-                    {
-                        labelProgresso.Text = "Importando o Arquivo";
-                        lVipp = ProcessaPlanilha.ListaDePostagem(path, this);
-                        labelProgresso.Text = "Arquivo importado!";
+                    labelProgresso.Text = "Importando o Arquivo";
+                    lVipp = ProcessaPlanilha.ListaDePostagem(path, this);
+                    labelProgresso.Text = "Arquivo importado!";
 
-                        #region Chama o metodo para Postar Objeto
-                        VIPP.PostarObjeto.Postagem(lVipp, this);
-                        #endregion
+                    #region Chama o metodo para Postar Objeto
+                    VIPP.PostarObjeto.Postagem(lVipp, this);
+                    #endregion
 
-                        labelProgresso.Text = "Salvando o arquivo processado...";
-                        GravaRetornoExcel.GravaRetorno();
-                        MessageBox.Show("Importação finalizada!");
-                    }
-                }                
+                    labelProgresso.Text = "Salvando o arquivo processado...";
+                    GravaRetornoExcel.GravaRetorno();
+                    MessageBox.Show("Importação finalizada!");
+                }
+                else
+                {
+                    Hide();
+                    new Form1().ShowDialog();
+                }
             }
 
             #endregion
-
-            GC.Collect();
-            Close();
+           //GC.Collect();
+            //Close();
 
         }
 

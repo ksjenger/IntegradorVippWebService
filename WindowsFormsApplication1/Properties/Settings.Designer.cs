@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsFormsApplication1.Properties {
+namespace IntegradorWebService.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -62,6 +62,19 @@ namespace WindowsFormsApplication1.Properties {
         public string IntegradorWebService_WSVIPP_PostagemVipp {
             get {
                 return ((string)(this["IntegradorWebService_WSVIPP_PostagemVipp"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://vipp.visualset.com.br")]
+        public string Site {
+            get {
+                return ((string)(this["Site"]));
+            }
+            set {
+                this["Site"] = value;
             }
         }
     }
