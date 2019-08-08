@@ -38,7 +38,7 @@ namespace IntegradorWebService
             {
                 Usuario = txtUsr.Text,
                 Token = txtPwd.Text,
-                IdPerfil = "5882"
+                IdPerfil = "3226"
             };
 
             if (txtUsr.Text.Length < 6)
@@ -61,6 +61,9 @@ namespace IntegradorWebService
             }
         }
 
+        private void Login_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }

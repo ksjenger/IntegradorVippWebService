@@ -23,7 +23,6 @@ namespace IntegradorWebService.Rest
                 ServicePointManager.Expect100Continue = false;
                 if (string.IsNullOrEmpty(IntegradorWebService.Properties.Settings.Default.Site))
                 {
-                    new Form1().ShowDialog();
                     return false;
                 }
 
@@ -36,6 +35,7 @@ namespace IntegradorWebService.Rest
                 postData += "&Senha=" + txtPwd;
 
                 byte[] data = encoding.GetBytes(postData);
+                
 
                 httpWReq.Method = "POST";
                 httpWReq.ContentType = "application/x-www-form-urlencoded";
