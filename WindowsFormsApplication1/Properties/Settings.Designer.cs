@@ -23,6 +23,29 @@ namespace IntegradorWebService.Properties {
             }
         }
         
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://vpsrv.visualset.com.br/PostagemVipp.asmx")]
+        public string IntegradorWebService_WSVIPP_PostagemVipp {
+            get {
+                return ((string)(this["IntegradorWebService_WSVIPP_PostagemVipp"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://vipp.visualset.com.br")]
+        public string Site {
+            get {
+                return ((string)(this["Site"]));
+            }
+            set {
+                this["Site"] = value;
+            }
+        }
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("PEFycmF5T2ZGb3JtYXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0cmlidXRvP" +
@@ -44,37 +67,16 @@ namespace IntegradorWebService.Properties {
             "21lQXRyaWJ1dG8+PENvbHVuYT4yMTwvQ29sdW5hPjwvRm9ybWF0YWNhb1BsYW5pbGhhPjxGb3JtYXRhY" +
             "2FvUGxhbmlsaGE+PE5vbWVBdHJpYnV0bz5DaWRhZGU8L05vbWVBdHJpYnV0bz48Q29sdW5hPjIyPC9Db" +
             "2x1bmE+PC9Gb3JtYXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0cmlidXRvP" +
-            "lVGPC9Ob21lQXRyaWJ1dG8+PENvbHVuYT4yMzwvQ29sdW5hPjwvRm9ybWF0YWNhb1BsYW5pbGhhPjwvQ" +
-            "XJyYXlPZkZvcm1hdGFjYW9QbGFuaWxoYT4=")]
+            "lVGPC9Ob21lQXRyaWJ1dG8+PENvbHVuYT4yMzwvQ29sdW5hPjwvRm9ybWF0YWNhb1BsYW5pbGhhPjxGb" +
+            "3JtYXRhY2FvUGxhbmlsaGE+PE5vbWVBdHJpYnV0bz5TZXJ2aWNvPC9Ob21lQXRyaWJ1dG8+PENvbHVuY" +
+            "T4yNTwvQ29sdW5hPjwvRm9ybWF0YWNhb1BsYW5pbGhhPjwvQXJyYXlPZkZvcm1hdGFjYW9QbGFuaWxoY" +
+            "T4=")]
         public string Layout {
             get {
                 return ((string)(this["Layout"]));
             }
             set {
                 this["Layout"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://vpsrv.visualset.com.br/PostagemVipp.asmx")]
-        public string IntegradorWebService_WSVIPP_PostagemVipp {
-            get {
-                return ((string)(this["IntegradorWebService_WSVIPP_PostagemVipp"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://vipp.visualset.com.br")]
-        public string Site {
-            get {
-                return ((string)(this["Site"]));
-            }
-            set {
-                this["Site"] = value;
             }
         }
     }

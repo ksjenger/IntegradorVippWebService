@@ -38,7 +38,7 @@ namespace IntegradorWebService
             {
                 Usuario = txtUsr.Text,
                 Token = txtPwd.Text,
-                IdPerfil = "3226"
+                IdPerfil = "5882"
             };
 
             if (txtUsr.Text.Length < 6)

@@ -41,6 +41,7 @@ namespace IntegradorWebService.Services
                         foreach (Excel.Range xlsWorkCell in xlsWorksRows)
                         {
                             Destinatario oDestinatario = new Destinatario();
+                            Servico oServico = new Servico();
                             WSVIPP.VolumeObjeto[] oVolumeObjetos = new WSVIPP.VolumeObjeto[] { new WSVIPP.VolumeObjeto() };
                             ItemConteudo[] oItemConteudos;
                             DeclaracaoConteudo[] oDeclaracaoConteudos = new DeclaracaoConteudo[] { new DeclaracaoConteudo() };
@@ -98,7 +99,7 @@ namespace IntegradorWebService.Services
                                     {
                                         DescricaoConteudo = valor,
                                         Quantidade = 1,
-                                        Valor = "1000"
+                                        Valor = "100"
 
                                     };
 
@@ -137,6 +138,24 @@ namespace IntegradorWebService.Services
                                     oVolumeObjetos[0].DeclaracaoConteudo.DocumentoDestinatario = valor;
                                 }
 
+                                else if (atributo.Equals("Servico"))
+                                {
+                                    string servico = valor;
+
+                                    if (valor.Equals("PAC")) 
+                                    {
+                                        oServico.ServicoECT = "4669";
+                                    }
+                                    else if (valor.Equals("SEDEX"))
+                                    {
+                                        oServico.ServicoECT = "4162";
+                                    }
+                                    else
+                                    {
+                                        oServico.ServicoECT = valor;
+                                    }
+                                }
+
                             }//fim do For da Lista de Formatacao
 
                             #endregion
@@ -146,7 +165,8 @@ namespace IntegradorWebService.Services
                             Postagem oPostagem = new Postagem()
                             {
                                 Destinatario = oDestinatario,
-                                Volumes = oVolumeObjetos
+                                Volumes = oVolumeObjetos,
+                                Servico = oServico
                             };
 
 
