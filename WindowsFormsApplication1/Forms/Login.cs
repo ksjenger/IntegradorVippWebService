@@ -1,5 +1,4 @@
 ﻿using IntegradorWebService.VIPP;
-using ServiceStack.Text;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +10,6 @@ using System.Net;
 using System.Text;
 using System.Web.Script.Serialization;
 using System.Windows.Forms;
-using System.Runtime.Serialization.Json;
 using IntegradorWebService.Rest;
 
 namespace IntegradorWebService
@@ -38,7 +36,7 @@ namespace IntegradorWebService
             {
                 Usuario = txtUsr.Text,
                 Token = txtPwd.Text,
-                IdPerfil = "5882"
+                IdPerfil = "5919"
             };
 
             if (txtUsr.Text.Length < 6)

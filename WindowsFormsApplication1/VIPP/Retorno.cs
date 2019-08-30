@@ -22,7 +22,7 @@ namespace IntegradorWebService.VIPP
         public static List<RetornoInvalida> lRetornoInvalida = new List<RetornoInvalida>();
 
         #region Recebe o XML e retorna uma String com o Status da Solicitacao, Destinatario e Numero do Objeto
-        public static string RetornoPostagem(string xmlString, Form1 frm)
+        public static void RetornoPostagem(string xmlString, Form1 frm)
         {
             string statusPostagem = null;
             string nomeDestinatario = null;
@@ -30,6 +30,7 @@ namespace IntegradorWebService.VIPP
             string etiqueta = null;
             string erros = null;
             string mensagem = null;
+            string tipoErro = null;
             string mensagemErro = null;
             int cont = 1;
 
@@ -57,8 +58,23 @@ namespace IntegradorWebService.VIPP
 
                     foreach (XmlNode nodeVolumeObjeto in VolumeObjetos)
                     {
-                        observacao = nodeVolumeObjeto.SelectSingleNode("CodigoBarraVolume").InnerText;
-                        etiqueta = nodeVolumeObjeto.SelectSingleNode("Etiqueta").InnerText;
+                        try
+                        {
+                            observacao = nodeVolumeObjeto.SelectSingleNode("CodigoBarraVolume").InnerText;
+                        }
+                        catch (NullReferenceException ex)
+                        {
+                            observacao = "Não Informado";
+                        }
+
+                        try
+                        {
+                            etiqueta = nodeVolumeObjeto.SelectSingleNode("Etiqueta").InnerText;
+                        }
+                        catch (NullReferenceException ex)
+                        {
+                            etiqueta = "Erro";
+                        }
                     }
                 }
 
@@ -68,12 +84,24 @@ namespace IntegradorWebService.VIPP
                     cont = 1;
                     erros = "";
                     mensagem = "";
+                    tipoErro = "";
                     foreach (XmlNode nodeErros in erro)
                     {
-                        mensagem = nodeErros.SelectSingleNode("Mensagem").InnerText;
-                        erros = nodeErros.SelectSingleNode("Descricao").InnerText;
-                        mensagemErro = mensagemErro + "| Erro " + cont + " - " + mensagem + " " + erros;
-                        cont++;
+                        tipoErro = nodeErros.SelectSingleNode("TipoErro").InnerText;
+
+                        if (tipoErro.Equals("Excecao"))
+                        {
+                            mensagem = nodeErros.SelectSingleNode("Mensagem").InnerText;
+                            mensagemErro = mensagemErro + "| Erro " + cont + " - " + mensagem + " " + erros;
+                            cont++;
+
+                        }else if (tipoErro.Equals("Validacao"))
+                        {
+                            mensagem = nodeErros.SelectSingleNode("Atributo").InnerText;
+                            erros = nodeErros.SelectSingleNode("Descricao").InnerText;
+                            mensagemErro = mensagemErro + "| Erro " + cont + " - " + mensagem + " " + erros;
+                            cont++;
+                        }
                     }
                 }
             }
@@ -102,7 +130,6 @@ namespace IntegradorWebService.VIPP
                 };
                 lRetornoInvalida.Add(oRetornoInvalida);
             }
-            return mensagem;
         }
         #endregion
 
