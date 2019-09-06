@@ -80,7 +80,11 @@ namespace IntegradorWebService
 
                     labelProgresso.Text = "Salvando o arquivo processado...";
                     GravaRetornoExcel.GravaRetorno();
-                    MessageBox.Show("Importação finalizada!");
+                    MessageBox.Show("Importação finalizada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                    DialogResult novo = MessageBox.Show("Deseja importar uma nova planilha?", "Importação", MessageBoxButtons.YesNo);
+
+                        
                 }
                 else
                 {

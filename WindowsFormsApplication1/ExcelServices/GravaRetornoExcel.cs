@@ -75,7 +75,7 @@ namespace IntegradorWebService.ExcelServices
             }
             catch (System.Runtime.InteropServices.COMException)
             {
-                MessageBox.Show("Não foi possivel gravar o retorno no arquivo processado, verifique se a planilha está bloqueada");
+                MessageBox.Show("Não foi possivel gravar o retorno no arquivo processado, verifique se a planilha está bloqueada", "Erro", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
 
             DateTime saveNow = DateTime.Now;
@@ -86,7 +86,6 @@ namespace IntegradorWebService.ExcelServices
             xlsApp.Quit();
             #endregion
         }
-
     }
 }
 
