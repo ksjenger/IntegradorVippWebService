@@ -20,7 +20,6 @@ namespace IntegradorWebService.Services
             List<FormatacaoPlanilha> lFormatacao = new List<FormatacaoPlanilha>();
             lFormatacao = FormatacaoPlanilha.ListarFormatacao();
             #endregion
-            #region Abre a Planilha
             List<Postagem> lVipp = new List<Postagem>();
             Excel.Application xlsAPP = new Excel.Application();
             int cont = 0;
@@ -30,10 +29,10 @@ namespace IntegradorWebService.Services
                 Excel.Workbook xlsWorkbook = xlsAPP.Workbooks.Open(path, 0, true, 5, "", "", true, Excel.XlPlatform.xlWindows, "", false, false, 0, false, false, false);
                 Excel.Sheets xlsSheets = xlsWorkbook.Worksheets;
 
-                #region For que acessa todas as planilhas
+                //For que acessa todas as planilhas
                 foreach (Excel.Worksheet xlsWorksheet in xlsSheets)
                 {
-                    #region Acessa a aba da Planilha com o nome "Control Respuesta".
+                    //Acessa a aba da Planilha com o nome "Control Respuesta".
                     if (xlsWorksheet.Name.Trim().Equals("Control Respuesta"))
                     {
                         Excel.Range xlsWorksRows = xlsWorksheet.Rows;
@@ -161,8 +160,8 @@ namespace IntegradorWebService.Services
 
                             #endregion
 
+                            
 
-                            #region Instanciar o objeto Postagem
                             Postagem oPostagem = new Postagem()
                             {
                                 Destinatario = oDestinatario,
@@ -193,27 +192,25 @@ namespace IntegradorWebService.Services
                             {
                                 break;
                             }
-                            
 
                         }// fim do for que acessa as linhas
-                        #endregion
 
                     }// fim do if q acessa a aba da Planilha com o nome "Control Respuesta".
-                    #endregion
-                }
-                #endregion
+
+                }// fim do For que acessa todas as planilhas
             }
             catch (Exception)
             {
                 MessageBox.Show("Ocorreu um erro com o arquivo, o mesmo é invalido ou está mal formatado", "Erro", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             finally
-            {
+            {                
                 GC.Collect();
             }
+
             xlsAPP.Quit();
             return lVipp;
-            #endregion
+
         }
         #endregion
 

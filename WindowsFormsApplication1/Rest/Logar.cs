@@ -50,7 +50,7 @@ namespace IntegradorWebService.Rest
 
                 string responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
 
-                JsonRetorno oJsonRetorno = new JavaScriptSerializer().Deserialize<JsonRetorno>(responseString);
+                JsonRetornoLogar oJsonRetorno = new JavaScriptSerializer().Deserialize<JsonRetornoLogar>(responseString);
 
                 if (oJsonRetorno.Status.Equals("0"))
                 {

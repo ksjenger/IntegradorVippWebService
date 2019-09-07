@@ -1,4 +1,6 @@
-﻿namespace IntegradorWebService
+﻿using System.Windows.Forms;
+
+namespace IntegradorWebService
 {
     partial class Form1
     {
@@ -29,90 +31,99 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.button1 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnSelecione = new System.Windows.Forms.Button();
             this.labelPath = new System.Windows.Forms.Label();
             this.labelProgresso = new System.Windows.Forms.Label();
+            this.comboPerfil = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnEnviar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Title = "Selecione o Arquivo Para Importar";
-            // 
-            // btnSelecione
-            // 
-            this.btnSelecione.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSelecione.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnSelecione.Location = new System.Drawing.Point(29, 36);
-            this.btnSelecione.Name = "btnSelecione";
-            this.btnSelecione.Size = new System.Drawing.Size(186, 42);
-            this.btnSelecione.TabIndex = 0;
-            this.btnSelecione.Text = "Selecione o Arquivo";
-            this.btnSelecione.UseVisualStyleBackColor = true;
-            this.btnSelecione.UseWaitCursor = true;
-            this.btnSelecione.Click += new System.EventHandler(this.BtnSelecione_Click);
+            resources.ApplyResources(this.openFileDialog1, "openFileDialog1");
             // 
             // labelPath
             // 
-            this.labelPath.AutoSize = true;
-            this.labelPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPath.Location = new System.Drawing.Point(26, 98);
+            resources.ApplyResources(this.labelPath, "labelPath");
             this.labelPath.Name = "labelPath";
-            this.labelPath.Size = new System.Drawing.Size(0, 15);
-            this.labelPath.TabIndex = 1;
             this.labelPath.UseWaitCursor = true;
             // 
             // labelProgresso
             // 
-            this.labelProgresso.AutoSize = true;
-            this.labelProgresso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProgresso.Location = new System.Drawing.Point(277, 49);
+            resources.ApplyResources(this.labelProgresso, "labelProgresso");
             this.labelProgresso.Name = "labelProgresso";
-            this.labelProgresso.Size = new System.Drawing.Size(0, 15);
-            this.labelProgresso.TabIndex = 2;
             this.labelProgresso.UseWaitCursor = true;
+            // 
+            // comboPerfil
+            // 
+            this.comboPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboPerfil.FormattingEnabled = true;
+            resources.ApplyResources(this.comboPerfil, "comboPerfil");
+            this.comboPerfil.Name = "comboPerfil";
+            this.comboPerfil.SelectedIndexChanged += new System.EventHandler(this.ComboPerfil_SelectedIndexChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::IntegradorWebService.Properties.Resources.logo_visualset1;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.UseWaitCursor = true;
+            // 
+            // btnEnviar
+            // 
+            this.btnEnviar.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.btnEnviar.Image = global::IntegradorWebService.Properties.Resources.Send;
+            resources.ApplyResources(this.btnEnviar, "btnEnviar");
+            this.btnEnviar.Name = "btnEnviar";
+            this.btnEnviar.UseVisualStyleBackColor = true;
+            this.btnEnviar.UseWaitCursor = true;
+            this.btnEnviar.Click += new System.EventHandler(this.Button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Image = global::IntegradorWebService.Properties.Resources.Open;
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseWaitCursor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
             // 
             // Form1
             // 
-            this.AcceptButton = this.btnSelecione;
-            this.AccessibleDescription = "Importador Visual Personalizado";
-            this.AccessibleName = "Importador Visual Personalizado";
+            resources.ApplyResources(this, "$this");
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(632, 132);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.comboPerfil);
+            this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.labelProgresso);
             this.Controls.Add(this.labelPath);
-            this.Controls.Add(this.btnSelecione);
+            this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Importador Visual Personalizado";
             this.UseWaitCursor = true;
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
+  
         #endregion
 
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button btnSelecione;
         private System.Windows.Forms.Label labelPath;
         public System.Windows.Forms.Label labelProgresso;
+        private System.Windows.Forms.Button btnEnviar;
+        private System.Windows.Forms.ComboBox comboPerfil;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private Button button1;
     }
 }
 

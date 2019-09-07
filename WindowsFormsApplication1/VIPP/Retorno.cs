@@ -62,7 +62,7 @@ namespace IntegradorWebService.VIPP
                         {
                             observacao = nodeVolumeObjeto.SelectSingleNode("CodigoBarraVolume").InnerText;
                         }
-                        catch (NullReferenceException ex)
+                        catch (NullReferenceException)
                         {
                             observacao = "Não Informado";
                         }
@@ -71,7 +71,7 @@ namespace IntegradorWebService.VIPP
                         {
                             etiqueta = nodeVolumeObjeto.SelectSingleNode("Etiqueta").InnerText;
                         }
-                        catch (NullReferenceException ex)
+                        catch (NullReferenceException)
                         {
                             etiqueta = "Erro";
                         }

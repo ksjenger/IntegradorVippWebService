@@ -35,8 +35,7 @@ namespace IntegradorWebService
             Operfil = new PerfilImportacao()
             {
                 Usuario = txtUsr.Text,
-                Token = txtPwd.Text,
-                IdPerfil = "5919"
+                Token = txtPwd.Text
             };
 
             if (txtUsr.Text.Length < 6)
@@ -54,7 +53,7 @@ namespace IntegradorWebService
             if (Logar.LogarVipp(txtUsr.Text, txtPwd.Text))
             {
                 Hide();
-                new Form1().ShowDialog();
+                new Form1(txtUsr.Text, txtPwd.Text).ShowDialog();
                 Application.Exit();
             }
         }

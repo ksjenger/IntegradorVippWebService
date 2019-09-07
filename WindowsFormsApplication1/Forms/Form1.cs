@@ -1,21 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Serialization;
-using System.Runtime.InteropServices;
-using Excel = Microsoft.Office.Interop.Excel;
-using Microsoft.Office.Interop.Excel;
 using IntegradorWebService.Services;
 using IntegradorWebService.WSVIPP;
 using IntegradorWebService.ExcelServices;
-using IntegradorWebService.VIPP;
+using IntegradorWebService.Rest;
 
 namespace IntegradorWebService
 {
@@ -23,81 +12,83 @@ namespace IntegradorWebService
     {
 
         List<Postagem> lVipp = new List<Postagem>();
+        Rootobject lPerfil = new Rootobject();
 
         public static string path;
         public static string nomeArquivo;
         public static string caminhoArquivo;
 
-        public Form1()
+        public Form1(string usuario, string senha)
         {
             InitializeComponent();
-        }
 
-        public Form1(string mensagem)
-        {
-            InitializeComponent();
-            this.labelProgresso.Text = mensagem;
-        }
-
-
-        void BtnSelecione_Click(object sender, EventArgs e)
-        {
-            #region Serialização do arquivo XML 
-            /*
-            XmlSerializer xsSubmit = new XmlSerializer(typeof(List<FormatacaoPlanilha>));
-            var subReq = new List<FormatacaoPlanilha>();
-
-            using (var sww = new StringWriter())
+            btnEnviar.Enabled = false;
+            lPerfil = RestPerfilImportacao.ProcessaListaPerfil(usuario, senha);
+            comboPerfil.Items.Add("Selecione o Perfil");
+            comboPerfil.SelectedIndex = 0;
+            for (int i = 0; i < lPerfil.Data.Length; i++)
             {
-               using (XmlWriter writer = XmlWriter.Create(sww))
-               {
-                   xsSubmit.Serialize(writer, lFormatacao);
-                   var plainTextBytes = Encoding.UTF8.GetBytes(sww.ToString());
-                   string x = Convert.ToBase64String(plainTextBytes);
-               }
+                comboPerfil.Items.Add(lPerfil.Data[i].IdPerfil + " - " + lPerfil.Data[i].NomePerfil);
             }
-            */
-            #endregion
 
+        }
+
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+
+            int id = comboPerfil.SelectedIndex;
+
+            if (id == -1)
+            {
+                MessageBox.Show("Selecione o perfil de importação", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+
+                Login.Operfil.IdPerfil = lPerfil.Data[id].IdPerfil;
+
+                #region Chama o metodo para Postar Objeto
+                VIPP.PostarObjeto.Postagem(lVipp, this);
+                #endregion
+
+                labelProgresso.Text = "Salvando o arquivo processado...";
+                GravaRetornoExcel.GravaRetorno();
+                MessageBox.Show("Importação finalizada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+
+
+
+        }
+
+        private void ComboPerfil_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+            btnEnviar.Enabled = false;
             #region Abre o Arquivo
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-
-                openFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    path = openFileDialog.FileName;
-                    nomeArquivo = System.IO.Path.GetFileNameWithoutExtension(openFileDialog.FileName);
-                    caminhoArquivo = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
-                    labelPath.Text = path;
-                    labelProgresso.Text = "Importando o Arquivo";
-                    lVipp = ProcessaPlanilha.ListaDePostagem(path, this);
-                    labelProgresso.Text = "Arquivo importado!";
-
-                    #region Chama o metodo para Postar Objeto
-                    VIPP.PostarObjeto.Postagem(lVipp, this);
-                    #endregion
-
-                    labelProgresso.Text = "Salvando o arquivo processado...";
-                    GravaRetornoExcel.GravaRetorno();
-                    MessageBox.Show("Importação finalizada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
-                    DialogResult novo = MessageBox.Show("Deseja importar uma nova planilha?", "Importação", MessageBoxButtons.YesNo);
-
-                        
-                }
-                else
-                {
-                    Hide();
-                    new Form1().ShowDialog();
-                }
+                path = openFileDialog.FileName;
+                nomeArquivo = System.IO.Path.GetFileNameWithoutExtension(openFileDialog.FileName);
+                caminhoArquivo = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
+                labelPath.Text = path;
+                labelProgresso.Text = "Importando o Arquivo";
+                lVipp = ProcessaPlanilha.ListaDePostagem(path, this);
+                labelProgresso.Text = "Arquivo importado!";
+                btnEnviar.Enabled = true;
+                comboPerfil.Focus();
             }
-
-            #endregion
-           //GC.Collect();
-            //Close();
-
         }
-
+        #endregion
     }
 }

@@ -75,7 +75,7 @@
             // labelIcon
             // 
             this.labelIcon.AutoSize = true;
-            this.labelIcon.Image = global::IntegradorWebService.Properties.Resources.logo_visualset;
+            //this.labelIcon.Image = global::IntegradorWebService.Properties.Resources.logo_visualset;
             this.labelIcon.Location = new System.Drawing.Point(217, 21);
             this.labelIcon.Name = "labelIcon";
             this.labelIcon.Size = new System.Drawing.Size(0, 13);
