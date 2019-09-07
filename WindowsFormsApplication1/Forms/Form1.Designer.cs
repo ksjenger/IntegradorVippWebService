@@ -37,7 +37,7 @@ namespace IntegradorWebService
             this.comboPerfil = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEnviar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSelecione = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,13 +50,11 @@ namespace IntegradorWebService
             // 
             resources.ApplyResources(this.labelPath, "labelPath");
             this.labelPath.Name = "labelPath";
-            this.labelPath.UseWaitCursor = true;
             // 
             // labelProgresso
             // 
             resources.ApplyResources(this.labelProgresso, "labelProgresso");
             this.labelProgresso.Name = "labelProgresso";
-            this.labelProgresso.UseWaitCursor = true;
             // 
             // comboPerfil
             // 
@@ -68,46 +66,45 @@ namespace IntegradorWebService
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::IntegradorWebService.Properties.Resources.logo_visualset1;
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.UseWaitCursor = true;
+            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // btnEnviar
             // 
-            this.btnEnviar.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.btnEnviar.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnEnviar.Image = global::IntegradorWebService.Properties.Resources.Send;
             resources.ApplyResources(this.btnEnviar, "btnEnviar");
             this.btnEnviar.Name = "btnEnviar";
             this.btnEnviar.UseVisualStyleBackColor = true;
-            this.btnEnviar.UseWaitCursor = true;
             this.btnEnviar.Click += new System.EventHandler(this.Button2_Click);
             // 
-            // button1
+            // btnSelecione
             // 
-            this.button1.Image = global::IntegradorWebService.Properties.Resources.Open;
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseWaitCursor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
+            this.btnSelecione.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnSelecione.Image = global::IntegradorWebService.Properties.Resources.Open;
+            resources.ApplyResources(this.btnSelecione, "btnSelecione");
+            this.btnSelecione.Name = "btnSelecione";
+            this.btnSelecione.Click += new System.EventHandler(this.Button1_Click_1);
             // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSelecione);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.comboPerfil);
             this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.labelProgresso);
             this.Controls.Add(this.labelPath);
-            this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.UseWaitCursor = true;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -123,7 +120,7 @@ namespace IntegradorWebService
         private System.Windows.Forms.Button btnEnviar;
         private System.Windows.Forms.ComboBox comboPerfil;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private Button button1;
+        private Button btnSelecione;
     }
 }
 

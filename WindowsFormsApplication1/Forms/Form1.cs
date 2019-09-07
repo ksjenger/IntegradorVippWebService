@@ -21,7 +21,7 @@ namespace IntegradorWebService
         public Form1(string usuario, string senha)
         {
             InitializeComponent();
-
+            Cursor = default;
             btnEnviar.Enabled = false;
             lPerfil = RestPerfilImportacao.ProcessaListaPerfil(usuario, senha);
             comboPerfil.Items.Add("Selecione o Perfil");
@@ -39,7 +39,7 @@ namespace IntegradorWebService
 
             int id = comboPerfil.SelectedIndex;
 
-            if (id == -1)
+            if (id == 0)
             {
                 MessageBox.Show("Selecione o perfil de importação", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -55,6 +55,9 @@ namespace IntegradorWebService
                 labelProgresso.Text = "Salvando o arquivo processado...";
                 GravaRetornoExcel.GravaRetorno();
                 MessageBox.Show("Importação finalizada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                path = null;
+                labelPath.Text = "";
+                labelProgresso.Text = "";
             }
         }
 
@@ -67,7 +70,14 @@ namespace IntegradorWebService
 
         private void ComboPerfil_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if(path == null)
+            {
+                btnSelecione.Focus();
+            }
+            else
+            {
+                btnEnviar.Focus();
+            }
         }
 
         private void Button1_Click_1(object sender, EventArgs e)
@@ -90,5 +100,11 @@ namespace IntegradorWebService
             }
         }
         #endregion
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.visualset.com.br");
+            System.Diagnostics.Process.Start("http://vipp.visualset.com.br");
+        }
     }
 }
