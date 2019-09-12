@@ -22,6 +22,8 @@ namespace IntegradorWebService
         public Login()
         {
             InitializeComponent();
+            this.Text = "Login - Versão: " + Application.ProductVersion;
+
         }
 
         private void BtnSair_Click(object sender, EventArgs e)

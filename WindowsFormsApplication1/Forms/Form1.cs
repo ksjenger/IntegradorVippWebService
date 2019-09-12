@@ -21,6 +21,7 @@ namespace IntegradorWebService
         public Form1(string usuario, string senha)
         {
             InitializeComponent();
+            this.Text = "Importador Visual Personalizado - Versão: " + Application.ProductVersion;
             Cursor = default;
             btnEnviar.Enabled = false;
             lPerfil = RestPerfilImportacao.ProcessaListaPerfil(usuario, senha);
@@ -46,7 +47,7 @@ namespace IntegradorWebService
             else
             {
 
-                Login.Operfil.IdPerfil = lPerfil.Data[id].IdPerfil;
+                Login.Operfil.IdPerfil = lPerfil.Data[id-1].IdPerfil;
 
                 #region Chama o metodo para Postar Objeto
                 VIPP.PostarObjeto.Postagem(lVipp, this);
@@ -105,6 +106,11 @@ namespace IntegradorWebService
         {
             System.Diagnostics.Process.Start("http://www.visualset.com.br");
             System.Diagnostics.Process.Start("http://vipp.visualset.com.br");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

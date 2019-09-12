@@ -105,6 +105,7 @@ namespace IntegradorWebService
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -114,6 +115,7 @@ namespace IntegradorWebService
   
         #endregion
 
+        
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label labelPath;
         public System.Windows.Forms.Label labelProgresso;

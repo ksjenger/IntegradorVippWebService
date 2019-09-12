@@ -99,7 +99,7 @@ namespace IntegradorWebService.Services
                                     {
                                         DescricaoConteudo = valor,
                                         Quantidade = 1,
-                                        Valor = "100"
+                                        Valor = "0,00"
 
                                     };
 
