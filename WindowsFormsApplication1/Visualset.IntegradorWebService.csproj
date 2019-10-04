@@ -61,11 +61,10 @@
     <StartupObject>IntegradorWebService.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>4A91984E014A5D7D1503288379A144D326A24628</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>EF772152434A30C7CFDF230979B1413C8825B534</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>
-    </ManifestKeyFile>
+    <ManifestKeyFile>Visualset.IntegradorWebService_2_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -80,7 +79,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Visualset.IntegradorWebService_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Visualset.IntegradorWebService_2_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <DelaySign>false</DelaySign>
@@ -194,6 +193,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Visualset.IntegradorWebService_1_TemporaryKey.pfx" />
+    <None Include="Visualset.IntegradorWebService_2_TemporaryKey.pfx" />
     <None Include="Visualset.IntegradorWebService_TemporaryKey.pfx" />
     <None Include="Web References\WSVIPP\BloquearDownload1.datasource">
       <DependentUpon>Reference.map</DependentUpon>

@@ -27,6 +27,7 @@ namespace IntegradorWebService.VIPP
             string statusPostagem = null;
             string nomeDestinatario = null;
             string observacao = null;
+            string observacao5 = null;
             string etiqueta = null;
             string erros = null;
             string mensagem = null;
@@ -61,6 +62,8 @@ namespace IntegradorWebService.VIPP
                         try
                         {
                             observacao = nodeVolumeObjeto.SelectSingleNode("CodigoBarraVolume").InnerText;
+                            observacao5 = nodeVolumeObjeto.SelectSingleNode("ObservacaoCinco").InnerText;
+
                         }
                         catch (NullReferenceException)
                         {

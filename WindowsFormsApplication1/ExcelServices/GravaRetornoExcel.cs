@@ -50,6 +50,7 @@ namespace IntegradorWebService.ExcelServices
                             xlsWorksRows.Item[cont, 2] = list.Nome;
                             xlsWorksRows.Item[cont, 3] = list.Status;
                             xlsWorksRows.Item[cont, 4] = list.Etiqueta;
+                            //xlsWorksRows.Item[cont, 5] = 
                         }
                     }
 
@@ -89,4 +90,5 @@ namespace IntegradorWebService.ExcelServices
 
     }
 }
+
 

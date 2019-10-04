@@ -36,6 +36,7 @@ namespace IntegradorWebService.Services
                     if (xlsWorksheet.Name.Trim().Equals("Control Respuesta"))
                     {
                         Excel.Range xlsWorksRows = xlsWorksheet.Rows;
+                        int isbnCount = 0;
 
                         //for do Numero de linhas
                         foreach (Excel.Range xlsWorkCell in xlsWorksRows)
@@ -116,7 +117,9 @@ namespace IntegradorWebService.Services
                                 {
                                     WSVIPP.VolumeObjeto oVolumeObjeto = new WSVIPP.VolumeObjeto
                                     {
-                                        CodigoBarraVolume = valor
+                                        CodigoBarraVolume = valor,
+                                        ObservacaoCinco = "" + 1
+
                                     };
                                     oVolumeObjetos[0].CodigoBarraVolume = oVolumeObjeto.CodigoBarraVolume;
 
@@ -142,7 +145,7 @@ namespace IntegradorWebService.Services
                                 {
                                     string servico = valor;
 
-                                    if (valor.Equals("PAC")) 
+                                    if (valor.Equals("PAC"))
                                     {
                                         oServico.ServicoECT = "4669";
                                     }
@@ -160,7 +163,7 @@ namespace IntegradorWebService.Services
 
                             #endregion
 
-                            
+
 
                             Postagem oPostagem = new Postagem()
                             {
@@ -170,12 +173,14 @@ namespace IntegradorWebService.Services
                             };
 
 
+
                             Postagem oPostagemExistente = (from o in lVipp
                                                            where o.Volumes[0].CodigoBarraVolume.Equals(
                                                             oPostagem.Volumes[0].CodigoBarraVolume)
                                                            select o).FirstOrDefault();
                             if (oPostagemExistente == null)
                             {
+                                isbnCount = 1;
                                 lVipp.Add(oPostagem);
                                 cont++;
                                 frm.labelProgresso.Text = "Processando o item " + cont + " da lista";
@@ -186,6 +191,9 @@ namespace IntegradorWebService.Services
                                 Array.Resize(ref x, x.Length + 1);
                                 x[x.Length - 1] = oPostagem.Volumes[0].DeclaracaoConteudo.ItemConteudo[0];
                                 oPostagemExistente.Volumes[0].DeclaracaoConteudo.ItemConteudo = x;
+                                isbnCount++;
+                                oPostagemExistente.Volumes[0].ObservacaoCinco = "" + isbnCount;
+
                             }
 
                             if (oPostagem.Destinatario.Nome.Equals(string.Empty))
@@ -204,7 +212,7 @@ namespace IntegradorWebService.Services
                 MessageBox.Show("Ocorreu um erro com o arquivo, o mesmo é invalido ou está mal formatado", "Erro", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             finally
-            {                
+            {
                 GC.Collect();
             }
 
