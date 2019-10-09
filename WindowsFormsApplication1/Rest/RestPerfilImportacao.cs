@@ -43,12 +43,12 @@ namespace IntegradorWebService.Rest
 
                 HttpWebResponse response = (HttpWebResponse)httpWReq.GetResponse();
 
-                string responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-
-
-                b = Newtonsoft.Json.JsonConvert.DeserializeObject<Rootobject>(responseString);
-
-
+                using (StreamReader streamReader = new StreamReader(response.GetResponseStream()))
+                {
+                    string responseString = streamReader.ReadToEnd();
+                    b = Newtonsoft.Json.JsonConvert.DeserializeObject<Rootobject>(responseString);
+                }
+                
             }
             catch (Exception)
             {

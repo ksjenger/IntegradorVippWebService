@@ -12,7 +12,7 @@ namespace IntegradorWebService
     {
 
         List<Postagem> lVipp = new List<Postagem>();
-        Rootobject lPerfil = new Rootobject();
+        readonly Rootobject lPerfil = new Rootobject();
 
         public static string path;
         public static string nomeArquivo;
@@ -51,6 +51,7 @@ namespace IntegradorWebService
 
                 #region Chama o metodo para Postar Objeto
                 VIPP.PostarObjeto.Postagem(lVipp, this);
+
                 #endregion
 
                 labelProgresso.Text = "Salvando o arquivo processado...";
@@ -85,20 +86,23 @@ namespace IntegradorWebService
         {
             btnEnviar.Enabled = false;
             #region Abre o Arquivo
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                path = openFileDialog.FileName;
-                nomeArquivo = System.IO.Path.GetFileNameWithoutExtension(openFileDialog.FileName);
-                caminhoArquivo = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
-                labelPath.Text = path;
-                labelProgresso.Text = "Importando o Arquivo";
-                lVipp = ProcessaPlanilha.ListaDePostagem(path, this);
-                labelProgresso.Text = "Arquivo importado!";
-                btnEnviar.Enabled = true;
-                comboPerfil.Focus();
+                openFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    path = openFileDialog.FileName;
+                    nomeArquivo = System.IO.Path.GetFileNameWithoutExtension(openFileDialog.FileName);
+                    caminhoArquivo = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
+                    labelPath.Text = path;
+                    labelProgresso.Text = "Importando o Arquivo";
+                    lVipp = ProcessaPlanilha.ListaDePostagem(path, this);
+                    labelProgresso.Text = "Arquivo importado!";
+                    btnEnviar.Enabled = true;
+                    comboPerfil.Focus();
+                }
             }
+                
         }
         #endregion
 
