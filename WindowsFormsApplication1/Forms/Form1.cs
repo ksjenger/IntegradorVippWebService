@@ -21,7 +21,7 @@ namespace IntegradorWebService
         public Form1(string usuario, string senha)
         {
             InitializeComponent();
-            this.Text = "Importador Visual Personalizado - Versão: " + Application.ProductVersion;
+            this.Text = "Importador Visual Personalizado - Versão: " + Application.ProductVersion + "  -  " + usuario ;
             Cursor = default;
             btnEnviar.Enabled = false;
             lPerfil = RestPerfilImportacao.ProcessaListaPerfil(usuario, senha);
@@ -60,13 +60,12 @@ namespace IntegradorWebService
                 path = null;
                 labelPath.Text = "";
                 labelProgresso.Text = "";
+                btnEnviar.Enabled = false;
             }
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-
-
 
         }
 

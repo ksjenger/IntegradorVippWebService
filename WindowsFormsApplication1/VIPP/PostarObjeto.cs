@@ -51,7 +51,7 @@ namespace IntegradorWebService.VIPP
                         }
                         catch (Exception e)
                         {
-                            //MessageBox.Show("Erro: " + e.Message + " verifique a conexao com a Internet");
+                            MessageBox.Show("Erro: " + e.Message + " verifique a conexao com a Internet");
                         }
                         Retorno.RetornoPostagem(oRetorno, frm);
                         #endregion

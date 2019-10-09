@@ -50,7 +50,7 @@ namespace IntegradorWebService.ExcelServices
                             xlsWorksRows.Item[cont, 2] = list.Nome;
                             xlsWorksRows.Item[cont, 3] = list.Status;
                             xlsWorksRows.Item[cont, 4] = list.Etiqueta;
-                            //xlsWorksRows.Item[cont, 5] = 
+                            xlsWorksRows.Item[cont, 5] = list.Observacao5;
                         }
                     }
 
@@ -80,7 +80,7 @@ namespace IntegradorWebService.ExcelServices
             }
 
             DateTime saveNow = DateTime.Now;
-            string sdf = saveNow.ToString("dd-MM-yyyy_hh-mm");
+            string sdf = saveNow.ToString("dd-MM-yyyy_hh.mm");
 
             string nomeArquivo = Form1.caminhoArquivo + "\\" + Form1.nomeArquivo + " " + sdf + ".xlsx";
             xlsApp.ActiveWorkbook.SaveAs(nomeArquivo);

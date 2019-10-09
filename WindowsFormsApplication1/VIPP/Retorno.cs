@@ -15,6 +15,8 @@ namespace IntegradorWebService.VIPP
 
         public string Status { get; set; }
 
+        public string Observacao5 { get; set; }
+
         #endregion
 
         //Listas que recebem o retorno em string
@@ -60,15 +62,27 @@ namespace IntegradorWebService.VIPP
                     foreach (XmlNode nodeVolumeObjeto in VolumeObjetos)
                     {
                         try
-                        {
+                        {                      
                             observacao = nodeVolumeObjeto.SelectSingleNode("CodigoBarraVolume").InnerText;
-                            observacao5 = nodeVolumeObjeto.SelectSingleNode("ObservacaoCinco").InnerText;
-
                         }
                         catch (NullReferenceException)
                         {
                             observacao = "Não Informado";
                         }
+
+                        try
+                        {
+                            int i = int.Parse(nodeVolumeObjeto.SelectSingleNode("ObservacaoCinco").InnerText); 
+                            if (i > 5)
+                            {
+                                observacao5 = "" + i;
+                            }
+                            
+                        }
+                        catch (NullReferenceException)
+                        {
+                            //observacao5 = "1";
+                        }                        
 
                         try
                         {
@@ -117,7 +131,9 @@ namespace IntegradorWebService.VIPP
                     Status = statusPostagem,
                     Etiqueta = etiqueta,
                     Nome = nomeDestinatario,
-                    Observacao = observacao
+                    Observacao = observacao,
+                    Observacao5 = observacao5
+                    
                 };
                 lRetornoValida.Add(oRetornoValida);
             }
@@ -129,7 +145,8 @@ namespace IntegradorWebService.VIPP
                     Nome = nomeDestinatario,
                     Observacao = observacao,
                     Status = statusPostagem,
-                    Erro = mensagemErro
+                    Erro = mensagemErro,
+                    Observacao5 = observacao5
                 };
                 lRetornoInvalida.Add(oRetornoInvalida);
             }

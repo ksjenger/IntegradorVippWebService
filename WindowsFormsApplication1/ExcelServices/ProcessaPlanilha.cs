@@ -122,6 +122,7 @@ namespace IntegradorWebService.Services
 
                                     };
                                     oVolumeObjetos[0].CodigoBarraVolume = oVolumeObjeto.CodigoBarraVolume;
+                                    oVolumeObjetos[0].ObservacaoCinco = oVolumeObjeto.ObservacaoCinco;
 
                                 }
                                 else if (atributo.Equals("Quantidade"))
