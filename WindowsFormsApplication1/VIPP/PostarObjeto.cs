@@ -28,6 +28,7 @@ namespace IntegradorWebService.VIPP
                 {
                     cont++;
                     frm.labelProgresso.Text = "Transmitindo para o VIPP o objeto " + cont + " da lista";
+
                     Postagem oPostagem = new Postagem
                     {
                         Destinatario = o.Destinatario,
@@ -37,6 +38,7 @@ namespace IntegradorWebService.VIPP
                         Servico = o.Servico,
                         Volumes = o.Volumes,
                     };
+
                     PerfilImportacao perfil = Login.Operfil;
                     oPostagem.PerfilVipp.Usuario = perfil.Usuario;
                     oPostagem.PerfilVipp.Token = perfil.Token;
@@ -53,7 +55,7 @@ namespace IntegradorWebService.VIPP
                         {
                             MessageBox.Show("Erro: " + e.Message + " verifique a conexao com a Internet");
                         }
-                        Retorno.RetornoPostagem(oRetorno, frm);
+                        Retorno.RetornoPostagem(oRetorno);
                         #endregion
                     }
                 }

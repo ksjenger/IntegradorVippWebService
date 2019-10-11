@@ -29,10 +29,8 @@ namespace IntegradorWebService
         public static List<FormatacaoPlanilha> ListarFormatacao()
         {
             List<FormatacaoPlanilha> lista = new List<FormatacaoPlanilha>();
-
-            //string layout = IntegradorWebService.Properties.Settings.Default.Layout;
             string layout = IntegradorWebService.Properties.Settings.Default.Layout;
-            char[] charsToTrim = { '"', ' ', '\\'};
+            char[] charsToTrim = { '"', ' ', '\\' };
             layout = layout.Trim(charsToTrim);
             byte[] data = Convert.FromBase64String(layout.Trim());
             string decodedString = Encoding.UTF8.GetString(data);
@@ -44,7 +42,7 @@ namespace IntegradorWebService
                     {
                         NomeAtributo = e.Element("NomeAtributo").Value,
                         Coluna = int.Parse(e.Element("Coluna").Value)
-            };
+                    };
 
 
             foreach (var k in q)

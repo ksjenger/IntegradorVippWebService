@@ -24,7 +24,7 @@ namespace IntegradorWebService.VIPP
         public static List<RetornoInvalida> lRetornoInvalida = new List<RetornoInvalida>();
 
         #region Recebe o XML e retorna uma String com o Status da Solicitacao, Destinatario e Numero do Objeto
-        public static void RetornoPostagem(string xmlString, Form1 frm)
+        public static void RetornoPostagem(string xmlString)
         {
             string statusPostagem = null;
             string nomeDestinatario = null;
@@ -62,7 +62,7 @@ namespace IntegradorWebService.VIPP
                     foreach (XmlNode nodeVolumeObjeto in VolumeObjetos)
                     {
                         try
-                        {                      
+                        {
                             observacao = nodeVolumeObjeto.SelectSingleNode("CodigoBarraVolume").InnerText;
                         }
                         catch (NullReferenceException)
@@ -72,17 +72,14 @@ namespace IntegradorWebService.VIPP
 
                         try
                         {
-                            int i = int.Parse(nodeVolumeObjeto.SelectSingleNode("ObservacaoCinco").InnerText); 
-                            if (i > 5)
-                            {
-                                observacao5 = "" + i;
-                            }
-                            
+
+                            observacao5 = nodeVolumeObjeto.SelectSingleNode("ObservacaoCinco").InnerText;
+
                         }
                         catch (NullReferenceException)
                         {
-                            //observacao5 = "1";
-                        }                        
+                            
+                        }
 
                         try
                         {
@@ -112,7 +109,8 @@ namespace IntegradorWebService.VIPP
                             mensagemErro = mensagemErro + "| Erro " + cont + " - " + mensagem + " " + erros;
                             cont++;
 
-                        }else if (tipoErro.Equals("Validacao"))
+                        }
+                        else if (tipoErro.Equals("Validacao"))
                         {
                             mensagem = nodeErros.SelectSingleNode("Atributo").InnerText;
                             erros = nodeErros.SelectSingleNode("Descricao").InnerText;
@@ -133,7 +131,7 @@ namespace IntegradorWebService.VIPP
                     Nome = nomeDestinatario,
                     Observacao = observacao,
                     Observacao5 = observacao5
-                    
+
                 };
                 lRetornoValida.Add(oRetornoValida);
             }

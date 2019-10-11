@@ -38,11 +38,22 @@ namespace IntegradorWebService.ExcelServices
                 //For que acessa todas as planilhas
                 foreach (Excel.Worksheet xlsWorksheet in xlsSheets)
                 {
+                    #region Grava p retorno na planilha - Ok
                     //Acessa a aba da Planilha com o nome "WebServiceVipp"
                     if (xlsWorksheet.Name.Trim().Equals("WebServiceVipp - ok"))
                     {
+
                         Excel.Range xlsWorksRows = xlsWorksheet.Cells;
-                        int cont = 0;
+                        int cont = 1;
+
+                        xlsWorksRows.Item[cont, 1] = "Observação 1";
+                        xlsWorksRows.Item[cont, 2] = "Destinatario";
+                        xlsWorksRows.Item[cont, 3] = "Status da Postagem";
+                        xlsWorksRows.Item[cont, 4] = "Codigo de Rastreio";
+                        xlsWorksRows.Item[cont, 5] = "Conteudo";
+
+
+
                         foreach (RetornoValida list in Retorno.lRetornoValida)
                         {
                             cont++;
@@ -51,14 +62,27 @@ namespace IntegradorWebService.ExcelServices
                             xlsWorksRows.Item[cont, 3] = list.Status;
                             xlsWorksRows.Item[cont, 4] = list.Etiqueta;
                             xlsWorksRows.Item[cont, 5] = list.Observacao5;
+                            if (int.Parse(list.Observacao5) > 5)
+                            {
+                                xlsWorksRows.Item[cont, 5].Interior.ColorIndex = 6;
+                            }
                         }
                     }
+
+                    #endregion
+
+                    #region Grava p retorno na planilha - Erro
 
                     if (xlsWorksheet.Name.Trim().Equals("WebServiceVipp - Erros"))
                     {
                         Excel.Range xlsWorksRowss = xlsWorksheet.Cells;
 
-                        int cont = 0;
+                        int cont = 1;
+                        xlsWorksRowss.Item[cont, 1] = "Observação 1";
+                        xlsWorksRowss.Item[cont, 2] = "Destinatario";
+                        xlsWorksRowss.Item[cont, 3] = "Status da Postagem";
+                        xlsWorksRowss.Item[cont, 4] = "Quantidade de Erros";
+
                         foreach (RetornoInvalida list in Retorno.lRetornoInvalida)
                         {
                             cont++;
@@ -71,6 +95,7 @@ namespace IntegradorWebService.ExcelServices
                             }
                         }
                     }
+                    #endregion
 
                 }
             }

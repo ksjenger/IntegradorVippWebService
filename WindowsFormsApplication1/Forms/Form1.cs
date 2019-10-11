@@ -83,22 +83,33 @@ namespace IntegradorWebService
 
         private void Button1_Click_1(object sender, EventArgs e)
         {
-            btnEnviar.Enabled = false;
+            
             #region Abre o Arquivo
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
+                    lVipp = null;
                     path = openFileDialog.FileName;
                     nomeArquivo = System.IO.Path.GetFileNameWithoutExtension(openFileDialog.FileName);
                     caminhoArquivo = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
                     labelPath.Text = path;
                     labelProgresso.Text = "Importando o Arquivo";
                     lVipp = ProcessaPlanilha.ListaDePostagem(path, this);
-                    labelProgresso.Text = "Arquivo importado!";
-                    btnEnviar.Enabled = true;
-                    comboPerfil.Focus();
+                    if(lVipp == null)
+                    {
+                        labelProgresso.Text = "";
+                        labelPath.Text = "";
+                        path = null;
+                    }
+                    else
+                    {
+                        labelProgresso.Text = "Arquivo importado!";
+                        btnEnviar.Enabled = true;
+                        comboPerfil.Focus();
+                    }
+
                 }
             }
                 

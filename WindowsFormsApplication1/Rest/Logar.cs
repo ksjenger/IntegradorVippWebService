@@ -14,10 +14,8 @@ namespace IntegradorWebService.Rest
 {
     class Logar
     {
-
         public static bool LogarVipp(string txtUsr, string txtPwd)
         {
-
             try
             {
                 ServicePointManager.Expect100Continue = false;
