@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
+﻿using IntegradorWebService.ExcelServices;
+using IntegradorWebService.Rest;
 using IntegradorWebService.Services;
 using IntegradorWebService.WSVIPP;
-using IntegradorWebService.ExcelServices;
-using IntegradorWebService.Rest;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+using System.Configuration;
 
 namespace IntegradorWebService
 {
@@ -21,7 +22,7 @@ namespace IntegradorWebService
         public Form1(string usuario, string senha)
         {
             InitializeComponent();
-            this.Text = "Importador Visual Personalizado - Versão: " + Application.ProductVersion + "  -  " + usuario ;
+            this.Text = "Importador Visual Personalizado - Versão: " + Application.ProductVersion + "  -  " + usuario;
             Cursor = default;
             btnEnviar.Enabled = false;
             lPerfil = RestPerfilImportacao.ProcessaListaPerfil(usuario, senha);
@@ -47,7 +48,7 @@ namespace IntegradorWebService
             else
             {
 
-                Login.Operfil.IdPerfil = lPerfil.Data[id-1].IdPerfil;
+                Login.Operfil.IdPerfil = lPerfil.Data[id - 1].IdPerfil;
 
                 #region Chama o metodo para Postar Objeto
                 VIPP.PostarObjeto.Postagem(lVipp, this);
@@ -64,14 +65,9 @@ namespace IntegradorWebService
             }
         }
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ComboPerfil_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(path == null)
+            if (path == null)
             {
                 btnSelecione.Focus();
             }
@@ -83,7 +79,6 @@ namespace IntegradorWebService
 
         private void Button1_Click_1(object sender, EventArgs e)
         {
-            
             #region Abre o Arquivo
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -97,7 +92,7 @@ namespace IntegradorWebService
                     labelPath.Text = path;
                     labelProgresso.Text = "Importando o Arquivo";
                     lVipp = ProcessaPlanilha.ListaDePostagem(path, this);
-                    if(lVipp == null)
+                    if (lVipp == null)
                     {
                         labelProgresso.Text = "";
                         labelPath.Text = "";
@@ -112,7 +107,7 @@ namespace IntegradorWebService
 
                 }
             }
-                
+
         }
         #endregion
 
@@ -122,9 +117,17 @@ namespace IntegradorWebService
             System.Diagnostics.Process.Start("http://vipp.visualset.com.br");
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
+            {
+                folderBrowserDialog.SelectedPath = Properties.Settings.Default.SaveFile;
+                folderBrowserDialog.Description = "Selecione onde salvar o arquivo processado";
+                folderBrowserDialog.ShowDialog();
+                Properties.Settings.Default.SaveFile = folderBrowserDialog.SelectedPath;
+                Properties.Settings.Default.Save();
+            }
         }
     }
 }

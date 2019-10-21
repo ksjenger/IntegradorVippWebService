@@ -117,15 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>181, 17</value>
-  </metadata>
-  <data name="openFileDialog1.Title" xml:space="preserve">
-    <value>Selecione o Arquivo Para Importar</value>
-  </data>
-  <metadata name="labelPath.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="labelPath.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -135,7 +126,7 @@
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
   <data name="labelPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 83</value>
+    <value>12, 88</value>
   </data>
   <data name="labelPath.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 15</value>
@@ -153,11 +144,8 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelPath.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
-  <metadata name="labelProgresso.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="labelProgresso.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -165,7 +153,7 @@
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
   <data name="labelProgresso.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 110</value>
+    <value>9, 131</value>
   </data>
   <data name="labelProgresso.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 15</value>
@@ -183,13 +171,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelProgresso.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
-  <metadata name="comboPerfil.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="comboPerfil.Location" type="System.Drawing.Point, System.Drawing">
-    <value>766, 104</value>
+    <value>766, 125</value>
   </data>
   <data name="comboPerfil.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 21</value>
@@ -207,11 +192,8 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboPerfil.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
-  <metadata name="pictureBox1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>
   </data>
@@ -231,16 +213,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
-  <metadata name="btnEnviar.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="btnEnviar.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>TopCenter</value>
   </data>
   <data name="btnEnviar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 137</value>
+    <value>12, 152</value>
   </data>
   <data name="btnEnviar.Size" type="System.Drawing.Size, System.Drawing">
     <value>923, 51</value>
@@ -264,23 +243,30 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnEnviar.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
-  <metadata name="btnSelecione.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="btnSelecione.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopCenter</value>
+  <data name="btnSelecione.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGrSURBVDhPhVK7TsNAEHR4iEcBFDTk7uyLYywkihSueEiG
+        AtHQ5i9SAD+QIAoKkPiASFQ0QE1JkQjCo4Ceh5Q/MTNnnzAOCZZGXq9nZ+f21vE8b6FSKYd4r1j4vliW
+        Us40m82xer0+PgqO68orpeSD64pODi9KiVYULc0mSVKi0F8wAiD2PU9su67rV6syCAJVRbwB0TuIn9AN
+        80WQ5/v+PByITxY7eKwyY6XUKkRugR443SKQf0SDayNARRbGcTxhwe8wDBeLnQk2pGuI9IcKEDyjdZUH
+        HVKEtSMFrAj4JRZljxkqazC/r38d4FqntZa7IB/zZmB9i/84xJECthikIw4M7zMM7Rz8Z8QH2RG6QwV4
+        /2ln2dNa1zL7PPt6KqI2gfJQAZLRibZPGds8eci1gX3mjUBxDwh+g9SibcZWgEdDzQXyDeYHNvEHmJFS
+        OyA+0TZFWZzmxAdye0aA25Ru1a8tuwduMpFD5Di4Nt7s/I44Qdwxs8FSzw12lwFuQOPfVBRFk55XXkMR
+        Ji8b7MxiiqDJqzl3kjglTj0Pa5mA0fwiOVqLGorflBKX38BP37AkqFLcAAAAAElFTkSuQmCC
+</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnSelecione.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btnSelecione.Location" type="System.Drawing.Point, System.Drawing">
-    <value>766, 12</value>
+    <value>863, 12</value>
   </data>
   <data name="btnSelecione.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 55</value>
+    <value>72, 55</value>
   </data>
   <data name="btnSelecione.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -301,12 +287,78 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnSelecione.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>590, 17</value>
+  </metadata>
+  <data name="menu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>945, 24</value>
+  </data>
+  <data name="menu.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="menu.Text" xml:space="preserve">
+    <value>menuStrip2</value>
+  </data>
+  <data name="&gt;&gt;menu.Name" xml:space="preserve">
+    <value>menu</value>
+  </data>
+  <data name="&gt;&gt;menu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menu.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="btnSalvarEm.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE+SURBVDhPhdO7LwRRGIbxcd0oiLishkRJIkgURLaQaITo
+        NGpBRaJwa5C4UxE60SnwT3oec8mZ2bN8yS87M+c935yZOZtk1YORwHDlPL82gHY01S5ecIVHfOMuO9ct
+        vvCKVTTVCebRjTHYpB8LeMIW7jELm62jVMeYSQ9/l2qoCxv4gA1vMIg6bLaMoqoNDPTCFfho2/CRhmC5
+        2tP0MK2wQR+e8YBreGePveaYZdY5RYUNLIMuNZRPtqIN5jCFBhZbcMyM2VKDI6zgHQfYC+wHHDNj1jlF
+        eeKnOcMkDB7Cr9CBvDpxAbPRBucYxVp2vgSfvwZ3678NXMF09mvwEpsYxwTcxn82cNAN5LK9m5zUlmm5
+        At+oz+t3dwO53BjHzJgtfYUdvOETbhxDMY6ZMeucouzuy4r9javMmGVOkvwA2+M+IzmdimcAAAAASUVO
+        RK5CYII=
+</value>
+  </data>
+  <data name="btnSalvarEm.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="btnSalvarEm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>785, 12</value>
+  </data>
+  <data name="btnSalvarEm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 55</value>
+  </data>
+  <data name="btnSalvarEm.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btnSalvarEm.Text" xml:space="preserve">
+    <value>Salvar Em</value>
+  </data>
+  <data name="btnSalvarEm.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnSalvarEm.Name" xml:space="preserve">
+    <value>btnSalvarEm</value>
+  </data>
+  <data name="&gt;&gt;btnSalvarEm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSalvarEm.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnSalvarEm.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.AccessibleDescription" xml:space="preserve">
@@ -322,7 +374,7 @@
     <value>Center</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>945, 194</value>
+    <value>945, 215</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1351,12 +1403,6 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Importador Visual Personalizado</value>
-  </data>
-  <data name="&gt;&gt;openFileDialog1.Name" xml:space="preserve">
-    <value>openFileDialog1</value>
-  </data>
-  <data name="&gt;&gt;openFileDialog1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Form1</value>

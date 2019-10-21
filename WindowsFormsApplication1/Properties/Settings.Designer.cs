@@ -12,7 +12,7 @@ namespace IntegradorWebService.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.1.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.2.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -33,7 +33,7 @@ namespace IntegradorWebService.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://vipp.visualset.com.br")]
@@ -41,12 +41,9 @@ namespace IntegradorWebService.Properties {
             get {
                 return ((string)(this["Site"]));
             }
-            set {
-                this["Site"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("PEFycmF5T2ZGb3JtYXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0cmlidXRvP" +
             "k9ic2VydmFjYW8xPC9Ob21lQXRyaWJ1dG8+PENvbHVuYT4xPC9Db2x1bmE+PC9Gb3JtYXRhY2FvUGxhb" +
@@ -75,8 +72,17 @@ namespace IntegradorWebService.Properties {
             get {
                 return ((string)(this["Layout"]));
             }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SaveFile {
+            get {
+                return ((string)(this["SaveFile"]));
+            }
             set {
-                this["Layout"] = value;
+                this["SaveFile"] = value;
             }
         }
     }

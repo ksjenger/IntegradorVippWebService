@@ -31,20 +31,16 @@ namespace IntegradorWebService
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.labelPath = new System.Windows.Forms.Label();
             this.labelProgresso = new System.Windows.Forms.Label();
             this.comboPerfil = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEnviar = new System.Windows.Forms.Button();
             this.btnSelecione = new System.Windows.Forms.Button();
+            this.menu = new System.Windows.Forms.MenuStrip();
+            this.btnSalvarEm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            resources.ApplyResources(this.openFileDialog1, "openFileDialog1");
             // 
             // labelPath
             // 
@@ -85,27 +81,39 @@ namespace IntegradorWebService
             // btnSelecione
             // 
             this.btnSelecione.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnSelecione.Image = global::IntegradorWebService.Properties.Resources.Open;
             resources.ApplyResources(this.btnSelecione, "btnSelecione");
             this.btnSelecione.Name = "btnSelecione";
             this.btnSelecione.Click += new System.EventHandler(this.Button1_Click_1);
+            // 
+            // menu
+            // 
+            resources.ApplyResources(this.menu, "menu");
+            this.menu.Name = "menu";
+            // 
+            // btnSalvarEm
+            // 
+            resources.ApplyResources(this.btnSalvarEm, "btnSalvarEm");
+            this.btnSalvarEm.Name = "btnSalvarEm";
+            this.btnSalvarEm.UseVisualStyleBackColor = true;
+            this.btnSalvarEm.Click += new System.EventHandler(this.Button1_Click);
             // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.btnSalvarEm);
             this.Controls.Add(this.btnSelecione);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.comboPerfil);
             this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.labelProgresso);
             this.Controls.Add(this.labelPath);
+            this.Controls.Add(this.menu);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -115,14 +123,14 @@ namespace IntegradorWebService
   
         #endregion
 
-        
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label labelPath;
         public System.Windows.Forms.Label labelProgresso;
         private System.Windows.Forms.Button btnEnviar;
         private System.Windows.Forms.ComboBox comboPerfil;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Button btnSelecione;
+        private MenuStrip menu;
+        private Button btnSalvarEm;
     }
 }
 

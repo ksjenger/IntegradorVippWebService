@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Runtime.InteropServices;
-using Excel = Microsoft.Office.Interop.Excel;
+﻿using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Excel;
 using IntegradorWebService.VIPP;
+using System.Windows.Forms;
 using System.Windows;
+using System;
 
 namespace IntegradorWebService.ExcelServices
 {
@@ -101,13 +98,27 @@ namespace IntegradorWebService.ExcelServices
             }
             catch (System.Runtime.InteropServices.COMException)
             {
-                MessageBox.Show("Não foi possivel gravar o retorno no arquivo processado, verifique se a planilha está bloqueada", "Erro", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                System.Windows.MessageBox.Show("Não foi possivel gravar o retorno no arquivo processado, verifique se a planilha está bloqueada", "Erro", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
 
             DateTime saveNow = DateTime.Now;
-            string sdf = saveNow.ToString("dd-MM-yyyy_hh.mm");
+            var sdf = saveNow.ToString("dd-MM-yyyy_hh.mm");
 
-            string nomeArquivo = Form1.caminhoArquivo + "\\" + Form1.nomeArquivo + " " + sdf + ".xlsx";
+
+            while(Properties.Settings.Default.SaveFile == "")
+            {
+                    System.Windows.MessageBox.Show("Selecione o local para Salvar o arquivo", "Salvar arquivo", MessageBoxButton.OK, MessageBoxImage.Information);
+                    using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
+                    {
+                        folderBrowserDialog.SelectedPath = Properties.Settings.Default.SaveFile;
+                        folderBrowserDialog.Description = "Selecione onde salvar o arquivo processado";
+                        folderBrowserDialog.ShowDialog();
+                        Properties.Settings.Default.SaveFile = folderBrowserDialog.SelectedPath;
+                        Properties.Settings.Default.Save();
+                    }                
+            }
+
+            var nomeArquivo =  Properties.Settings.Default.SaveFile + "\\" + Form1.nomeArquivo + " " + sdf + ".xlsx";
             xlsApp.ActiveWorkbook.SaveAs(nomeArquivo);
             xlsApp.Quit();
             #endregion
