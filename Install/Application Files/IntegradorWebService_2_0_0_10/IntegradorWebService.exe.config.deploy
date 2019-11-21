@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <configSections>
+        <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+            <section name="IntegradorWebService.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+            <section name="WindowsFormsApplication1.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+        </sectionGroup>
+        <sectionGroup name="applicationSettings" type="System.Configuration.ApplicationSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+            <section name="IntegradorWebService.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+            <section name="WindowsFormsApplication1.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+        </sectionGroup>
+    </configSections>
+    <userSettings>
+        <IntegradorWebService.Properties.Settings>
+            <setting name="SaveFile" serializeAs="String">
+                <value />
+            </setting>
+        </IntegradorWebService.Properties.Settings>
+    </userSettings>
+    <applicationSettings>
+        <IntegradorWebService.Properties.Settings>
+            <setting name="IntegradorWebService_WSVIPP_PostagemVipp" serializeAs="String">
+                <value>http://vpsrv.visualset.com.br/PostagemVipp.asmx</value>
+            </setting>
+            <setting name="Site" serializeAs="String">
+                <value>http://vipp.visualset.com.br</value>
+            </setting>
+            <setting name="Layout" serializeAs="String">
+                <value>PEFycmF5T2ZGb3JtYXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0cmlidXRvPk9ic2VydmFjYW8xPC9Ob21lQXRyaWJ1dG8+PENvbHVuYT4xPC9Db2x1bmE+PC9Gb3JtYXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0cmlidXRvPlF1YW50aWRhZGU8L05vbWVBdHJpYnV0bz48Q29sdW5hPjExPC9Db2x1bmE+PC9Gb3JtYXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0cmlidXRvPkNvbnRldWRvPC9Ob21lQXRyaWJ1dG8+PENvbHVuYT4xMDwvQ29sdW5hPjwvRm9ybWF0YWNhb1BsYW5pbGhhPjxGb3JtYXRhY2FvUGxhbmlsaGE+PE5vbWVBdHJpYnV0bz5PYnNlcnZhY2FvMjwvTm9tZUF0cmlidXRvPjxDb2x1bmE+MTM8L0NvbHVuYT48L0Zvcm1hdGFjYW9QbGFuaWxoYT48Rm9ybWF0YWNhb1BsYW5pbGhhPjxOb21lQXRyaWJ1dG8+RGVzdGluYXRhcmlvPC9Ob21lQXRyaWJ1dG8+PENvbHVuYT4xNTwvQ29sdW5hPjwvRm9ybWF0YWNhb1BsYW5pbGhhPjxGb3JtYXRhY2FvUGxhbmlsaGE+PE5vbWVBdHJpYnV0bz5Eb2N1bWVudG9EZXN0aW5hdGFyaW88L05vbWVBdHJpYnV0bz48Q29sdW5hPjE2PC9Db2x1bmE+PC9Gb3JtYXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0cmlidXRvPkVuZGVyZWNvPC9Ob21lQXRyaWJ1dG8+PENvbHVuYT4xNzwvQ29sdW5hPjwvRm9ybWF0YWNhb1BsYW5pbGhhPjxGb3JtYXRhY2FvUGxhbmlsaGE+PE5vbWVBdHJpYnV0bz5OdW1lcm88L05vbWVBdHJpYnV0bz48Q29sdW5hPjE4PC9Db2x1bmE+PC9Gb3JtYXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0cmlidXRvPkJhaXJybzwvTm9tZUF0cmlidXRvPjxDb2x1bmE+MTk8L0NvbHVuYT48L0Zvcm1hdGFjYW9QbGFuaWxoYT48Rm9ybWF0YWNhb1BsYW5pbGhhPjxOb21lQXRyaWJ1dG8+Q29tcGxlbWVudG88L05vbWVBdHJpYnV0bz48Q29sdW5hPjIwPC9Db2x1bmE+PC9Gb3JtYXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0cmlidXRvPkNFUDwvTm9tZUF0cmlidXRvPjxDb2x1bmE+MjE8L0NvbHVuYT48L0Zvcm1hdGFjYW9QbGFuaWxoYT48Rm9ybWF0YWNhb1BsYW5pbGhhPjxOb21lQXRyaWJ1dG8+Q2lkYWRlPC9Ob21lQXRyaWJ1dG8+PENvbHVuYT4yMjwvQ29sdW5hPjwvRm9ybWF0YWNhb1BsYW5pbGhhPjxGb3JtYXRhY2FvUGxhbmlsaGE+PE5vbWVBdHJpYnV0bz5VRjwvTm9tZUF0cmlidXRvPjxDb2x1bmE+MjM8L0NvbHVuYT48L0Zvcm1hdGFjYW9QbGFuaWxoYT48Rm9ybWF0YWNhb1BsYW5pbGhhPjxOb21lQXRyaWJ1dG8+U2VydmljbzwvTm9tZUF0cmlidXRvPjxDb2x1bmE+MjU8L0NvbHVuYT48L0Zvcm1hdGFjYW9QbGFuaWxoYT48L0FycmF5T2ZGb3JtYXRhY2FvUGxhbmlsaGE+</value>
+            </setting>
+        </IntegradorWebService.Properties.Settings>
+        <WindowsFormsApplication1.Properties.Settings>
+            <setting name="IntegradorWebService_WSVIPP_PostagemVipp" serializeAs="String">
+                <value>http://vpsrv.visualset.com.br/PostagemVipp.asmx</value>
+            </setting>
+        </WindowsFormsApplication1.Properties.Settings>
+    </applicationSettings>
+<startup><supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.1" /></startup>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-12.0.0.0" newVersion="12.0.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+</configuration>

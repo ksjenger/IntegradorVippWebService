@@ -50,24 +50,25 @@ namespace IntegradorWebService.Properties {
             "mlsaGE+PEZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0cmlidXRvPlF1YW50aWRhZGU8L05vbWVBdHJpY" +
             "nV0bz48Q29sdW5hPjExPC9Db2x1bmE+PC9Gb3JtYXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFua" +
             "WxoYT48Tm9tZUF0cmlidXRvPkNvbnRldWRvPC9Ob21lQXRyaWJ1dG8+PENvbHVuYT4xMDwvQ29sdW5hP" +
-            "jwvRm9ybWF0YWNhb1BsYW5pbGhhPjxGb3JtYXRhY2FvUGxhbmlsaGE+PE5vbWVBdHJpYnV0bz5EZXN0a" +
-            "W5hdGFyaW88L05vbWVBdHJpYnV0bz48Q29sdW5hPjE1PC9Db2x1bmE+PC9Gb3JtYXRhY2FvUGxhbmlsa" +
-            "GE+PEZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0cmlidXRvPkRvY3VtZW50b0Rlc3RpbmF0YXJpbzwvT" +
-            "m9tZUF0cmlidXRvPjxDb2x1bmE+MTY8L0NvbHVuYT48L0Zvcm1hdGFjYW9QbGFuaWxoYT48Rm9ybWF0Y" +
-            "WNhb1BsYW5pbGhhPjxOb21lQXRyaWJ1dG8+RW5kZXJlY288L05vbWVBdHJpYnV0bz48Q29sdW5hPjE3P" +
-            "C9Db2x1bmE+PC9Gb3JtYXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0cmlid" +
-            "XRvPk51bWVybzwvTm9tZUF0cmlidXRvPjxDb2x1bmE+MTg8L0NvbHVuYT48L0Zvcm1hdGFjYW9QbGFua" +
-            "WxoYT48Rm9ybWF0YWNhb1BsYW5pbGhhPjxOb21lQXRyaWJ1dG8+QmFpcnJvPC9Ob21lQXRyaWJ1dG8+P" +
-            "ENvbHVuYT4xOTwvQ29sdW5hPjwvRm9ybWF0YWNhb1BsYW5pbGhhPjxGb3JtYXRhY2FvUGxhbmlsaGE+P" +
-            "E5vbWVBdHJpYnV0bz5Db21wbGVtZW50bzwvTm9tZUF0cmlidXRvPjxDb2x1bmE+MjA8L0NvbHVuYT48L" +
-            "0Zvcm1hdGFjYW9QbGFuaWxoYT48Rm9ybWF0YWNhb1BsYW5pbGhhPjxOb21lQXRyaWJ1dG8+Q0VQPC9Ob" +
-            "21lQXRyaWJ1dG8+PENvbHVuYT4yMTwvQ29sdW5hPjwvRm9ybWF0YWNhb1BsYW5pbGhhPjxGb3JtYXRhY" +
-            "2FvUGxhbmlsaGE+PE5vbWVBdHJpYnV0bz5DaWRhZGU8L05vbWVBdHJpYnV0bz48Q29sdW5hPjIyPC9Db" +
-            "2x1bmE+PC9Gb3JtYXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0cmlidXRvP" +
-            "lVGPC9Ob21lQXRyaWJ1dG8+PENvbHVuYT4yMzwvQ29sdW5hPjwvRm9ybWF0YWNhb1BsYW5pbGhhPjxGb" +
-            "3JtYXRhY2FvUGxhbmlsaGE+PE5vbWVBdHJpYnV0bz5TZXJ2aWNvPC9Ob21lQXRyaWJ1dG8+PENvbHVuY" +
-            "T4yNTwvQ29sdW5hPjwvRm9ybWF0YWNhb1BsYW5pbGhhPjwvQXJyYXlPZkZvcm1hdGFjYW9QbGFuaWxoY" +
-            "T4=")]
+            "jwvRm9ybWF0YWNhb1BsYW5pbGhhPjxGb3JtYXRhY2FvUGxhbmlsaGE+PE5vbWVBdHJpYnV0bz5PYnNlc" +
+            "nZhY2FvMjwvTm9tZUF0cmlidXRvPjxDb2x1bmE+MTM8L0NvbHVuYT48L0Zvcm1hdGFjYW9QbGFuaWxoY" +
+            "T48Rm9ybWF0YWNhb1BsYW5pbGhhPjxOb21lQXRyaWJ1dG8+RGVzdGluYXRhcmlvPC9Ob21lQXRyaWJ1d" +
+            "G8+PENvbHVuYT4xNTwvQ29sdW5hPjwvRm9ybWF0YWNhb1BsYW5pbGhhPjxGb3JtYXRhY2FvUGxhbmlsa" +
+            "GE+PE5vbWVBdHJpYnV0bz5Eb2N1bWVudG9EZXN0aW5hdGFyaW88L05vbWVBdHJpYnV0bz48Q29sdW5hP" +
+            "jE2PC9Db2x1bmE+PC9Gb3JtYXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0c" +
+            "mlidXRvPkVuZGVyZWNvPC9Ob21lQXRyaWJ1dG8+PENvbHVuYT4xNzwvQ29sdW5hPjwvRm9ybWF0YWNhb" +
+            "1BsYW5pbGhhPjxGb3JtYXRhY2FvUGxhbmlsaGE+PE5vbWVBdHJpYnV0bz5OdW1lcm88L05vbWVBdHJpY" +
+            "nV0bz48Q29sdW5hPjE4PC9Db2x1bmE+PC9Gb3JtYXRhY2FvUGxhbmlsaGE+PEZvcm1hdGFjYW9QbGFua" +
+            "WxoYT48Tm9tZUF0cmlidXRvPkJhaXJybzwvTm9tZUF0cmlidXRvPjxDb2x1bmE+MTk8L0NvbHVuYT48L" +
+            "0Zvcm1hdGFjYW9QbGFuaWxoYT48Rm9ybWF0YWNhb1BsYW5pbGhhPjxOb21lQXRyaWJ1dG8+Q29tcGxlb" +
+            "WVudG88L05vbWVBdHJpYnV0bz48Q29sdW5hPjIwPC9Db2x1bmE+PC9Gb3JtYXRhY2FvUGxhbmlsaGE+P" +
+            "EZvcm1hdGFjYW9QbGFuaWxoYT48Tm9tZUF0cmlidXRvPkNFUDwvTm9tZUF0cmlidXRvPjxDb2x1bmE+M" +
+            "jE8L0NvbHVuYT48L0Zvcm1hdGFjYW9QbGFuaWxoYT48Rm9ybWF0YWNhb1BsYW5pbGhhPjxOb21lQXRya" +
+            "WJ1dG8+Q2lkYWRlPC9Ob21lQXRyaWJ1dG8+PENvbHVuYT4yMjwvQ29sdW5hPjwvRm9ybWF0YWNhb1BsY" +
+            "W5pbGhhPjxGb3JtYXRhY2FvUGxhbmlsaGE+PE5vbWVBdHJpYnV0bz5VRjwvTm9tZUF0cmlidXRvPjxDb" +
+            "2x1bmE+MjM8L0NvbHVuYT48L0Zvcm1hdGFjYW9QbGFuaWxoYT48Rm9ybWF0YWNhb1BsYW5pbGhhPjxOb" +
+            "21lQXRyaWJ1dG8+U2VydmljbzwvTm9tZUF0cmlidXRvPjxDb2x1bmE+MjU8L0NvbHVuYT48L0Zvcm1hd" +
+            "GFjYW9QbGFuaWxoYT48L0FycmF5T2ZGb3JtYXRhY2FvUGxhbmlsaGE+")]
         public string Layout {
             get {
                 return ((string)(this["Layout"]));

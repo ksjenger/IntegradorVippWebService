@@ -99,6 +99,7 @@ namespace IntegradorWebService.VIPP
                     erros = "";
                     mensagem = "";
                     tipoErro = "";
+
                     foreach (XmlNode nodeErros in erro)
                     {
                         tipoErro = nodeErros.SelectSingleNode("TipoErro").InnerText;
