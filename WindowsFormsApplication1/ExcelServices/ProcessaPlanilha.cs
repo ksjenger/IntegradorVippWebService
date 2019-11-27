@@ -167,7 +167,7 @@ namespace IntegradorWebService.Services
 
                                 else if (atributo.Equals("Servico"))
                                 {
-                                    string servico = valor;
+                                    valor = valor.ToUpper();
 
                                     if (valor.Equals("PAC"))
                                     {
@@ -187,7 +187,7 @@ namespace IntegradorWebService.Services
 
                             #endregion
 
-
+                            #region Instancia o objeto Postagem
 
                             Postagem oPostagem = new Postagem()
                             {
@@ -195,8 +195,6 @@ namespace IntegradorWebService.Services
                                 Volumes = oVolumeObjetos,
                                 Servico = oServico
                             };
-
-
 
                             Postagem oPostagemExistente = (from o in lVipp
                                                            where o.Volumes[0].CodigoBarraVolume.Equals(
@@ -217,13 +215,14 @@ namespace IntegradorWebService.Services
                                 oPostagemExistente.Volumes[0].DeclaracaoConteudo.ItemConteudo = x;
                                 isbnCount++;
                                 oPostagemExistente.Volumes[0].ObservacaoCinco = "" + isbnCount;
-
                             }
 
                             if (oPostagem.Destinatario.Nome.Equals(string.Empty))
                             {
                                 break;
                             }
+                            #endregion
+
 
                         }// fim do for que acessa as linhas
 
@@ -243,10 +242,7 @@ namespace IntegradorWebService.Services
             xlsAPP.Quit();
             #endregion
             return lVipp;
-
         }
         #endregion
-
-
     }
 }
