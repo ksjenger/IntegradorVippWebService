@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Configuration;
+using IntegradorWebService.Visualset.IntegradorWebService.Entities;
 
 namespace IntegradorWebService
 {
@@ -18,6 +19,7 @@ namespace IntegradorWebService
         public static string path;
         public static string nomeArquivo;
         public static string caminhoArquivo;
+        public static string tipoArquivo;
 
         public Form1(string usuario, string senha)
         {
@@ -31,6 +33,7 @@ namespace IntegradorWebService
             {
                 comboPerfil.Items.Add(lPerfil.Data[i].IdPerfil + " - " + lPerfil.Data[i].NomePerfil);
             }
+            progressBar.Visible = false;
 
         }
 
@@ -50,7 +53,7 @@ namespace IntegradorWebService
                 Login.Operfil.IdPerfil = lPerfil.Data[id - 1].IdPerfil;
 
                 #region Chama o metodo para Postar Objeto
-                VIPP.PostarObjeto.Postagem(lVipp, this);
+                VIPP.PostarObjetoVIPP.Postagem(lVipp, this);
 
                 #endregion
 
@@ -61,6 +64,8 @@ namespace IntegradorWebService
                 labelPath.Text = "";
                 labelProgresso.Text = "";
                 btnEnviar.Enabled = false;
+                progressBar.Value = 0;
+                progressBar.Visible = false;
             }
         }
 
@@ -76,23 +81,25 @@ namespace IntegradorWebService
             }
         }
 
+        #region Abre o Arquivo
         private void Button1_Click_1(object sender, EventArgs e)
         {
-            #region Abre o Arquivo
+            
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                //openFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                openFileDialog.Filter = "Txt files (*.txt)|*.txt|All files (*.*)|*.*";
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     lVipp = null;
+                    tipoArquivo = "txt";
                     path = openFileDialog.FileName;
                     nomeArquivo = System.IO.Path.GetFileNameWithoutExtension(openFileDialog.FileName);
                     caminhoArquivo = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
                     labelPath.Text = path;
                     labelProgresso.Text = "Importando o Arquivo";
-
                     #region Processa o Arquivo
-                    lVipp = ProcessaPlanilha.ListaDePostagem(path, this);
+                    lVipp = ProcessaPlanilha.ListaDePostagem(path, this, tipoArquivo);
                     #endregion
 
                     if (lVipp == null)
@@ -103,7 +110,7 @@ namespace IntegradorWebService
                     }
                     else
                     {
-                        labelProgresso.Text = "Arquivo importado!";
+                        labelProgresso.Text = "Arquivo importado!";                                                
                         btnEnviar.Enabled = true;
                         comboPerfil.Focus();
                     }
