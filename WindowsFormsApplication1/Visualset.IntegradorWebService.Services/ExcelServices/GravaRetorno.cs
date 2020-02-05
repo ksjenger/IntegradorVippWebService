@@ -5,12 +5,67 @@ using System.Windows.Forms;
 using System.Windows;
 using System;
 using IntegradorWebService.Visualset.IntegradorWebService.Entities;
+using System.IO;
+using System.Text;
+using System.Collections.Generic;
 
 namespace IntegradorWebService.ExcelServices
 {
-    class GravaRetornoExcel
+    class GravaRetorno
     {
-        public static void GravaRetorno()
+        #region Grava Retorno txt
+        public static void GravaRetornoTxt()
+        {
+            DateTime saveNow = DateTime.Now;
+            var sdf = saveNow.ToString("dd-MM-yyyy_hh.mm");
+
+            while (Properties.Settings.Default.SaveFile == "")
+            {
+                System.Windows.MessageBox.Show("Selecione o local para Salvar o arquivo", "Salvar arquivo", MessageBoxButton.OK, MessageBoxImage.Information);
+                using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
+                {
+                    folderBrowserDialog.SelectedPath = Properties.Settings.Default.SaveFile;
+                    folderBrowserDialog.Description = "Selecione onde salvar o arquivo processado";
+                    folderBrowserDialog.ShowDialog();
+                    Properties.Settings.Default.SaveFile = folderBrowserDialog.SelectedPath;
+                    Properties.Settings.Default.Save();
+                }
+            }
+            string FileName = Properties.Settings.Default.SaveFile + "\\" + Form1.nomeArquivo + " " + sdf + ".txt";
+
+            using (StreamWriter file = new System.IO.StreamWriter(FileName, false, new UTF8Encoding(true)))
+            {
+                int cont = 0;
+                foreach (RetornoInvalida oRetorno in TrataRetorno.lRetornoInvalida)
+                {
+                    string retorno = string.Join(" | ", oRetorno.Nome.Trim(), oRetorno.Erro.Trim(), oRetorno.Observacao.Trim(), oRetorno.Status.Trim());
+                    file.WriteLine(retorno);
+                }
+
+                foreach (RetornoValida oRetorno in TrataRetorno.lRetornoValida)
+                {
+                    string retorno = string.Join(" | ", oRetorno.Nome.Trim(), oRetorno.Etiqueta.Trim(), oRetorno.Observacao.Trim(), oRetorno.Status.Trim());
+                    file.WriteLine(retorno);
+                }
+                file.Close();
+
+            }
+            
+
+
+
+
+
+
+
+        }
+
+
+        #endregion
+
+
+        #region Grava Retorno Excel
+        public static void GravaRetornoExcel()
         {
             #region Salva a lista de retorno no Excel
             Excel.Application xlsApp = new Excel.Application();
@@ -124,7 +179,7 @@ namespace IntegradorWebService.ExcelServices
             xlsApp.Quit();
             #endregion
         }
-
+        #endregion
     }
 }
 

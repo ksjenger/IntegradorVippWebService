@@ -58,7 +58,17 @@ namespace IntegradorWebService
                 #endregion
 
                 labelProgresso.Text = "Salvando o arquivo processado...";
-                GravaRetornoExcel.GravaRetorno();
+
+                switch (tipoArquivo)
+                {
+                    case "txt":
+                        GravaRetorno.GravaRetornoTxt();
+                        break;
+                    case "CENGAGE - EXCEL":
+                        GravaRetorno.GravaRetornoExcel();
+                        break;
+                }
+                                
                 MessageBox.Show("Importação finalizada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 path = null;
                 labelPath.Text = "";
@@ -92,7 +102,7 @@ namespace IntegradorWebService
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     lVipp = null;
-                    tipoArquivo = "txt";
+                    tipoArquivo = "csv";
                     path = openFileDialog.FileName;
                     nomeArquivo = System.IO.Path.GetFileNameWithoutExtension(openFileDialog.FileName);
                     caminhoArquivo = System.IO.Path.GetDirectoryName(openFileDialog.FileName);

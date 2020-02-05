@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <AssemblyVersion>2020.2.4.1855</AssemblyVersion>
+    <AssemblyVersion>2020.2.5.1453</AssemblyVersion>
     <PublishUrl>C:\Users\ksjenger\Desktop\IntegradorVippWebService\Install\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -141,7 +141,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Visualset.IntegradorWebService.Services\ExcelServices\GravaRetornoExcel.cs" />
+    <Compile Include="Visualset.IntegradorWebService.Services\ExcelServices\GravaRetorno.cs" />
     <Compile Include="Visualset.IntegradorWebService.Services\ExcelServices\CarregaFormatacao.cs" />
     <Compile Include="Visualset.IntegradorWebService.Services\ProcessaListaDeFormatacao.cs" />
     <Compile Include="Visualset.IntegradorWebService.Services\TrataRetorno.cs" />
