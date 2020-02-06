@@ -1,10 +1,6 @@
-﻿using IntegradorWebService.Visualset.IntegradorWebService.Entities;
-using IntegradorWebService.WSVIPP;
-using System;
+﻿using Visualset.IntegradorWebService.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Visualset.IntegradorWebService.DataLayer.ServiceReference;
 
 namespace IntegradorWebService.Visualset.IntegradorWebService.Services
 {

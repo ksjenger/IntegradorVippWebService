@@ -3,15 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using IntegradorWebService.WSVIPP;
 using Excel = Microsoft.Office.Interop.Excel;
-using ItemConteudo = IntegradorWebService.WSVIPP.ItemConteudo;
 using System.Windows;
-using IntegradorWebService.Visualset.IntegradorWebService.Entities;
-using IntegradorWebService.Visualset.IntegradorWebService.Services.ExcelServices;
+using Visualset.IntegradorWebService.Entities;
 using IntegradorWebService.Visualset.IntegradorWebService.Services;
+using Visualset.IntegradorWebService.DataLayer.ServiceReference;
+using Visualset.IntegradorWebService.View;
 
-namespace IntegradorWebService.Services
+namespace Visualset.IntegradorWebService
 {
     class ProcessaPlanilha
     {
@@ -127,7 +126,7 @@ namespace IntegradorWebService.Services
                                 {
                                     Destinatario oDestinatario = new Destinatario();
                                     Servico oServico = new Servico();
-                                    WSVIPP.VolumeObjeto[] oVolumeObjetos = new WSVIPP.VolumeObjeto[] { new WSVIPP.VolumeObjeto() };
+                                    VolumeObjeto[] oVolumeObjetos = new VolumeObjeto[] { new VolumeObjeto() };
                                     ItemConteudo[] oItemConteudos;
                                     DeclaracaoConteudo[] oDeclaracaoConteudos = new DeclaracaoConteudo[] { new DeclaracaoConteudo() };
                                     Excel.Range xlsCell = xlsWorkCell.Cells;
@@ -199,7 +198,7 @@ namespace IntegradorWebService.Services
                                         }
                                         else if (atributo.Equals("Observacao1"))
                                         {
-                                            WSVIPP.VolumeObjeto oVolumeObjeto = new WSVIPP.VolumeObjeto
+                                            VolumeObjeto oVolumeObjeto = new VolumeObjeto
                                             {
                                                 CodigoBarraVolume = valor,
                                                 ObservacaoCinco = "" + 1
@@ -211,7 +210,7 @@ namespace IntegradorWebService.Services
                                         }
                                         else if (atributo.Equals("Observacao2"))
                                         {
-                                            WSVIPP.VolumeObjeto oVolumeObjeto = new WSVIPP.VolumeObjeto
+                                            VolumeObjeto oVolumeObjeto = new VolumeObjeto
                                             {
                                                 CodigoBarraCliente = valor
 
