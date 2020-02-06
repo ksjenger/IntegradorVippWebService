@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+<<<<<<< HEAD
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,6 +28,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+=======
+>>>>>>> 9fa98c482e24165f3582d7135ebcb72f2fd7fb1b
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,7 +54,11 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
+<<<<<<< HEAD
     <AssemblyOriginatorKeyFile>Visualset.IntegradorWebService.pfx</AssemblyOriginatorKeyFile>
+=======
+    <AssemblyOriginatorKeyFile>Visualset.IntegradorWebService_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+>>>>>>> 9fa98c482e24165f3582d7135ebcb72f2fd7fb1b
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -67,11 +74,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="CarregaFormatacao.cs" />
     <Compile Include="PostarObjetoBusiness.cs" />
     <Compile Include="Process\GravaRetorno.cs" />
     <Compile Include="Process\PostarObjetoProcess.cs" />
     <Compile Include="Process\TrataRetorno.cs" />
+=======
+>>>>>>> 9fa98c482e24165f3582d7135ebcb72f2fd7fb1b
     <Compile Include="VIPPRestBusiness.cs" />
     <Compile Include="Process\ViPPRestProcess.cs" />
     <Compile Include="Program.cs" />
@@ -85,7 +95,19 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <None Include="Visualset.IntegradorWebService.pfx" />
+=======
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+>>>>>>> 9fa98c482e24165f3582d7135ebcb72f2fd7fb1b
     <None Include="Visualset.IntegradorWebService_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +123,7 @@
       <Name>Visualset.IntegradorWebService.Entities</Name>
     </ProjectReference>
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
@@ -108,5 +131,8 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+=======
+  <ItemGroup />
+>>>>>>> 9fa98c482e24165f3582d7135ebcb72f2fd7fb1b
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -36,7 +36,11 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
+<<<<<<< HEAD
     <AssemblyOriginatorKeyFile>Visualset.IntegradorWebService.pfx</AssemblyOriginatorKeyFile>
+=======
+    <AssemblyOriginatorKeyFile>Visualset.IntegradorWebService_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+>>>>>>> 9fa98c482e24165f3582d7135ebcb72f2fd7fb1b
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -80,7 +84,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+<<<<<<< HEAD
     <None Include="Visualset.IntegradorWebService.pfx" />
+=======
+>>>>>>> 9fa98c482e24165f3582d7135ebcb72f2fd7fb1b
     <None Include="Visualset.IntegradorWebService_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

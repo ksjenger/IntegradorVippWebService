@@ -1,4 +1,9 @@
 ﻿using Visualset.IntegradorWebService.Entities;
+<<<<<<< HEAD
+=======
+using IntegradorWebService.WSVIPP;
+using System;
+>>>>>>> 9fa98c482e24165f3582d7135ebcb72f2fd7fb1b
 using System.Collections.Generic;
 using Visualset.IntegradorWebService.DataLayer.ServiceReference;
 

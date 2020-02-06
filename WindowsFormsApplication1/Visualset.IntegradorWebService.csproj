@@ -63,11 +63,18 @@
     <StartupObject>IntegradorWebService.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
+<<<<<<< HEAD
     <ManifestCertificateThumbprint>DE61C73E9BB8D63AD3832E90AE6E4942888678E4</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>
     </ManifestKeyFile>
+=======
+    <ManifestCertificateThumbprint>CAB401E269E674E1EE1E17F519E822F11857C284</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Visualset.IntegradorWebService_TemporaryKey.pfx</ManifestKeyFile>
+>>>>>>> 9fa98c482e24165f3582d7135ebcb72f2fd7fb1b
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -82,7 +89,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>IntegradorWebService.Visualset.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Visualset.IntegradorWebService.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <DelaySign>false</DelaySign>
@@ -149,6 +156,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Visualset.IntegradorWebService.Services\ProcessaListaDeFormatacao.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="Visualset.IntegradorWebService.Services\TrataRetorno.cs" />
+>>>>>>> 9fa98c482e24165f3582d7135ebcb72f2fd7fb1b
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +175,15 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Visualset.IntegradorWebService.Services\ExcelServices\ProcessaPlanilha.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="Web References\WSVIPP\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Visualset.IntegradorWebService.Services\PostarObjetoVIPP.cs" />
+>>>>>>> 9fa98c482e24165f3582d7135ebcb72f2fd7fb1b
     <EmbeddedResource Include="View\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +208,32 @@
     </None>
     <None Include="Visualset.IntegradorWebService.pfx" />
     <None Include="Visualset.IntegradorWebService_TemporaryKey.pfx" />
+<<<<<<< HEAD
+=======
+    <None Include="Web References\WSVIPP\BloquearDownload1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSVIPP\BloquearObjetoCorreios1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSVIPP\item.wsdl" />
+    <None Include="Web References\WSVIPP\LiberarDownload1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSVIPP\ObjetoRastreio1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSVIPP\PostagemRetorno1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSVIPP\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WSVIPP\RetornoEtiquetas1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+>>>>>>> 9fa98c482e24165f3582d7135ebcb72f2fd7fb1b
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -214,6 +260,7 @@
     <None Include="View\Resources\Open.png" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Content Include="View\Resources\logo-visualset5.ico" />
     <Content Include="View\Resources\logo_visualset5_KbN_icona.ico" />
   </ItemGroup>
@@ -229,6 +276,21 @@
       <Project>{6137030B-E268-4914-A325-580E9ECA094D}</Project>
       <Name>Visualset.IntegradorWebService.DataLayer</Name>
     </ProjectReference>
+=======
+    <None Include="View\Resources\logo-visualset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="View\Resources\Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="View\Resources\logo-visualset5.ico" />
+    <Content Include="View\Resources\logo_visualset5_KbN_icona.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Visualset.IntegradorWebService.Entities\" />
+  </ItemGroup>
+  <ItemGroup>
+>>>>>>> 9fa98c482e24165f3582d7135ebcb72f2fd7fb1b
     <ProjectReference Include="..\Visualset.IntegradorWebService.Entities\Visualset.IntegradorWebService.Entities.csproj">
       <Project>{8fc834c0-9f1d-42e5-b085-a992dea3618a}</Project>
       <Name>Visualset.IntegradorWebService.Entities</Name>

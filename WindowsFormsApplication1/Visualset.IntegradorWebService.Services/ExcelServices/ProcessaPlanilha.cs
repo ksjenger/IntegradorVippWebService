@@ -6,6 +6,10 @@ using System.Text;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Windows;
 using Visualset.IntegradorWebService.Entities;
+<<<<<<< HEAD
+=======
+using IntegradorWebService.Visualset.IntegradorWebService.Services.ExcelServices;
+>>>>>>> 9fa98c482e24165f3582d7135ebcb72f2fd7fb1b
 using IntegradorWebService.Visualset.IntegradorWebService.Services;
 using Visualset.IntegradorWebService.DataLayer.ServiceReference;
 using Visualset.IntegradorWebService.View;

@@ -2,7 +2,10 @@
 using System.Windows.Forms;
 using Visualset.IntegradorWebService.Entities;
 using Visualset.IntegradorWebService.Facade;
+<<<<<<< HEAD:WindowsFormsApplication1/View/Login.cs
 using Visualset.IntegradorWebService.View;
+=======
+>>>>>>> 9fa98c482e24165f3582d7135ebcb72f2fd7fb1b:WindowsFormsApplication1/Visualset.IntegradorWebService.View/Login.cs
 
 namespace IntegradorWebService
 {

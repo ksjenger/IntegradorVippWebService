@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+<<<<<<< HEAD
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,6 +28,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+=======
+>>>>>>> 9fa98c482e24165f3582d7135ebcb72f2fd7fb1b
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -54,7 +57,11 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
+<<<<<<< HEAD
     <AssemblyOriginatorKeyFile>Visualset.IntegradorWebService.pfx</AssemblyOriginatorKeyFile>
+=======
+    <AssemblyOriginatorKeyFile>Visualset.IntegradorWebService_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+>>>>>>> 9fa98c482e24165f3582d7135ebcb72f2fd7fb1b
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -70,7 +77,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="PostarObjetoFacade.cs" />
+=======
+>>>>>>> 9fa98c482e24165f3582d7135ebcb72f2fd7fb1b
     <Compile Include="VIPPRestFacade.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,7 +102,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+<<<<<<< HEAD
     <None Include="Visualset.IntegradorWebService.pfx" />
+=======
+>>>>>>> 9fa98c482e24165f3582d7135ebcb72f2fd7fb1b
     <None Include="Visualset.IntegradorWebService_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -103,15 +116,19 @@
       <Project>{11a5486a-87f2-4ee7-8719-483a14f0042c}</Project>
       <Name>Visualset.IntegradorWebService.Business</Name>
     </ProjectReference>
+<<<<<<< HEAD
     <ProjectReference Include="..\Visualset.IntegradorWebService.DataLayer\Visualset.IntegradorWebService.DataLayer.csproj">
       <Project>{6137030B-E268-4914-A325-580E9ECA094D}</Project>
       <Name>Visualset.IntegradorWebService.DataLayer</Name>
     </ProjectReference>
+=======
+>>>>>>> 9fa98c482e24165f3582d7135ebcb72f2fd7fb1b
     <ProjectReference Include="..\Visualset.IntegradorWebService.Entities\Visualset.IntegradorWebService.Entities.csproj">
       <Project>{8FC834C0-9F1D-42E5-B085-A992DEA3618A}</Project>
       <Name>Visualset.IntegradorWebService.Entities</Name>
     </ProjectReference>
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
@@ -119,5 +136,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+=======
+>>>>>>> 9fa98c482e24165f3582d7135ebcb72f2fd7fb1b
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
