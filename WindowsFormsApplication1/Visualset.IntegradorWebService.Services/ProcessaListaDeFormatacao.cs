@@ -1,4 +1,4 @@
-﻿using IntegradorWebService.Visualset.IntegradorWebService.Entities;
+﻿using Visualset.IntegradorWebService.Entities;
 using IntegradorWebService.WSVIPP;
 using System;
 using System.Collections.Generic;

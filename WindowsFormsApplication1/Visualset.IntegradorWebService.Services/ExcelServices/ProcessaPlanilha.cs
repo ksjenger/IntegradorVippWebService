@@ -7,7 +7,7 @@ using IntegradorWebService.WSVIPP;
 using Excel = Microsoft.Office.Interop.Excel;
 using ItemConteudo = IntegradorWebService.WSVIPP.ItemConteudo;
 using System.Windows;
-using IntegradorWebService.Visualset.IntegradorWebService.Entities;
+using Visualset.IntegradorWebService.Entities;
 using IntegradorWebService.Visualset.IntegradorWebService.Services.ExcelServices;
 using IntegradorWebService.Visualset.IntegradorWebService.Services;
 

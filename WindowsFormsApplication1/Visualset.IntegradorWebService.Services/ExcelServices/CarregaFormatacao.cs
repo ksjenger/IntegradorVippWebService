@@ -1,4 +1,4 @@
-﻿using IntegradorWebService.Visualset.IntegradorWebService.Entities;
+﻿using Visualset.IntegradorWebService.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Xml.Linq;
+using Visualset.IntegradorWebService.Entities;
 
 namespace IntegradorWebService.Visualset.IntegradorWebService.Services.ExcelServices
 {

@@ -4,7 +4,7 @@ using IntegradorWebService.VIPP;
 using System.Windows.Forms;
 using System.Windows;
 using System;
-using IntegradorWebService.Visualset.IntegradorWebService.Entities;
+using Visualset.IntegradorWebService.Entities;
 using System.IO;
 using System.Text;
 using System.Collections.Generic;
